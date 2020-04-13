@@ -2,7 +2,7 @@
 description: WebAssembly could improve security and efficiency of web services
 ---
 
-# Why
+# Why?
 
 {% embed url="https://www.youtube.com/watch?v=RjYLHxNO4nM" caption="" %}
 

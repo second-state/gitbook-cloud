@@ -2,7 +2,7 @@
 description: WebAssembly for cloud services
 ---
 
-# What is Second State
+# What is Second State?
 
 Second State builds the next generation open source “operating system” for the cloud and the decentralized web. The Second State Virtual Machine \(SSVM\) is a WebAssembly runtime optimized for server-side applications. It works seamlessly with existing application frameworks, such as Node.js, but provides a secure and lightweight runtime at native performance. It is a managed alternative to native code, and is ideal for building AI and big data microservices. [Check out why](server-side-webassembly/why/) you want to use WebAssembly on the server-side.
 

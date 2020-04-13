@@ -1,10 +1,10 @@
 # Table of contents
 
-* [What is Second State](README.md)
+* [What is Second State?](README.md)
 
 ## Server-side WebAssembly
 
-* [Why](server-side-webassembly/why/README.md)
+* [Why?](server-side-webassembly/why/README.md)
   * [WebAssembly vs native code](server-side-webassembly/why/webassembly-vs-native-code.md)
 * [Getting started](server-side-webassembly/getting-started/README.md)
   * [The no software approach](server-side-webassembly/getting-started/the-no-software-approach.md)
