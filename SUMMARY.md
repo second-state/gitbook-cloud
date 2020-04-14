@@ -20,4 +20,5 @@
 * [Rust and WebAssembly](related-technologies/rust-and-webassembly.md)
 * [WebAssembly in the browser](related-technologies/webassembly-in-the-browser.md)
 * [How to Learn Rust Without Installing Any Software](related-technologies/how-to-learn-rust-without-installing-any-software.md)
+* [How to Publish a no-code website in 10 minutes](related-technologies/untitled.md)
 

@@ -105,7 +105,7 @@ Now whenever you push code to this repository, the actions in `rust.yml` are per
 
 You can click on a result, and click on the build tab to the left to see the details. The build and run sections provide the most relevant details. The Run section shows successful printing of hello world!
 
-![The Run action shows Hello World! printed to the console!](../.gitbook/assets/image%20%287%29.png)
+![The Run action shows Hello World! printed to the console!](../.gitbook/assets/image%20%288%29.png)
 
 Next, you can add third party dependencies in `Cargo.toml`, and build complex Rust applications in main.rs. Every time someone pushes code, we will be able to see the results.
 
