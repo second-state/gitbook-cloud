@@ -1,10 +1,12 @@
 ---
-description: No-code
+description: >-
+  Easy way to publish a modern looking web site non-tech people can manage and
+  update. All for free!
 ---
 
 # How to Publish a no-code website in 10 minutes
 
-In this article, I'll introduce a no-code, no-software and no-cost solution to publishing sophisticated web sites managed by non-technical people. The full codebase is [on GitHub here](https://github.com/second-state/hugo-website).
+In this article, I'll introduce a no-code, no-software and no-cost solution to publishing sophisticated web sites managed by non-technical people. The full codebase is [on GitHub here](https://github.com/second-state/hugo-website/fork).
 
 Sir Issac Newton discovered the law of gravity when practicing “social distancing” during the Plague. What will YOU do? One silver lining of quarantine is that all this free time brings out the entrepreneur spirit and creativity in us.
 
@@ -22,7 +24,7 @@ In this short article, I will walk you through a solution based on the Hugo fram
 
 If you just want to get started with a working web site as soon as possible, first make sure that you have a free GitHub account.
 
-Go to [this GitHub repository](https://github.com/second-state/hugo-website), and click on the “Fork” button on the top right, and **fork** it to your own account.
+[**Fork this GitHub repository**](https://github.com/second-state/hugo-website/fork) to your own account.
 
 Go to your forked repository, and click on the Actions tab. You will see a message like the one in the picture below. **Click on** the “I understand my workflows …” button.
 

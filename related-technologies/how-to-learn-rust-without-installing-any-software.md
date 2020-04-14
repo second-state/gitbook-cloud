@@ -6,7 +6,7 @@ description: How to use GitHub Actions to learn Rust from your web browser
 
 ![](../.gitbook/assets/image%20%281%29.png)
 
-In this article, we'll learn how to use GitHub Actions to learn Rust from your web browser. We'll code, build, test, run, and release all from a web page. No software needed! [Learn with GitHub](https://github.com/second-state/learn-rust-with-github-actions) or [follow us on Twitter](https://twitter.com/secondstateinc).
+In this article, we'll learn how to use GitHub Actions to learn Rust from your web browser. We'll code, build, test, run, and release all from a web page. No software needed! [Learn with GitHub](https://github.com/second-state/learn-rust-with-github-actions/fork).
 
 Rust is one of the hottest programming languages today. [Alpha geeks](https://martinfowler.com/bliki/AlphaGeek.html) love it. It is Stackoverflow's [most beloved programming language](https://www.theregister.co.uk/2019/04/09/stack_overflow_survey/) for the past 4 years in a row.
 
@@ -48,7 +48,7 @@ edition = "2018"
 [dependencies]
 ```
 
-The Cargo.toml file at the root directory of the repository
+The `Cargo.toml` file at the root directory of the repository
 
 Now we have a complete Rust project. Let's build and run it now.
 
@@ -166,6 +166,6 @@ Now you can experiment with your Rust code, and have GitHub build, test, and run
 
 * [Learn to program in Rust](https://www.rust-lang.org/learn)
 * [Learn more about GitHub Actions](https://github.com/features/actions)
-* Of course, the best way to run Rust programs on the server is [inside a WebAssembly Virtual Machine](https://docs.secondstate.io/beginners-guide-to-webassembly/my-first-webassembly-app). Checkout the open source [Second State VM](https://www.secondstate.io/) for that!
+* Of course, the best way to run Rust programs on the server is [inside a WebAssembly Virtual Machine](https://cloud.secondstate.io/server-side-webassembly/getting-started). Checkout the open source [Second State VM](https://www.secondstate.io/) for that!
 * Learn about the [BUIDL](https://www.secondstate.io/buidl/) online IDE to [code and deploy](http://buidl.secondstate.io/) decentralized web apps on public blockchains
 
