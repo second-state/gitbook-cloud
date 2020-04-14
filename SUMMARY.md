@@ -19,4 +19,5 @@
 * [A Rusty hello world](related-technologies/a-rusty-hello-world.md)
 * [Rust and WebAssembly](related-technologies/rust-and-webassembly.md)
 * [WebAssembly in the browser](related-technologies/webassembly-in-the-browser.md)
+* [How to Learn Rust Without Installing Any Software](related-technologies/how-to-learn-rust-without-installing-any-software.md)
 
