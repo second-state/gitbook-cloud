@@ -35,5 +35,5 @@ $ cd download
 $ node node/app.js
 ```
 
-That's it! Now continue to see more examples on how to build [complex](../rust-and-javascript.md) Rust + JavaScript hybrid applications for cryptography, machine learning, data management, and artificial intelligence.
+That's it! Now continue to see more examples on how to build [complex](../rust-and-javascript/) Rust + JavaScript hybrid applications for cryptography, machine learning, data management, and artificial intelligence.
 

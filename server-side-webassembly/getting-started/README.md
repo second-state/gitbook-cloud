@@ -140,5 +140,5 @@ hello Wasm
 
 #### **What’s next?**
 
-Now we have seen a very simple example to call a Rust function from JavaScript in a Node.js application. In the next several tutorials, we will look into more complex examples of Rust JavaScript interaction using the SSVM. Let's start with [a review of all input output data types](../rust-and-javascript.md) supported in the SSVM Rust JavaScript bridge. After that, we will cover examples of cryptography, machine learning, data management, and artificial intelligence.
+Now we have seen a very simple example to call a Rust function from JavaScript in a Node.js application. In the next several tutorials, we will look into more complex examples of Rust JavaScript interaction using the SSVM. Let's start with [a review of all input output data types](../rust-and-javascript/) supported in the SSVM Rust JavaScript bridge. After that, we will cover examples of cryptography, machine learning, data management, and artificial intelligence.
 

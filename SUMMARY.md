@@ -8,7 +8,9 @@
   * [WebAssembly vs native code](server-side-webassembly/why/webassembly-vs-native-code.md)
 * [Getting started](server-side-webassembly/getting-started/README.md)
   * [The no software approach](server-side-webassembly/getting-started/the-no-software-approach.md)
-* [Rust and JavaScript](server-side-webassembly/rust-and-javascript.md)
+* [Rust and JavaScript](server-side-webassembly/rust-and-javascript/README.md)
+  * [Supported types](server-side-webassembly/rust-and-javascript/supported-types.md)
+  * [Pass any argument and return any value](server-side-webassembly/rust-and-javascript/pass-any-argument-and-return-any-value.md)
 
 ## Function as a Service
 
