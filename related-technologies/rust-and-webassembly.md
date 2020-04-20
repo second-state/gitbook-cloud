@@ -31,9 +31,9 @@ $ source $HOME/.cargo/env
 ```text
 # Install WebAssembly tools
 
-$ rustup target add wasm32-wasi
+$ rustup target add wasm32-unknown-unknown
 $ rustup override set nightly
-$ rustup target add wasm32-wasi --toolchain nightly
+$ rustup target add wasm32-unknown-unknown --toolchain nightly
 ```
 
 Next, create a new `cargo` project. Since this program is intended to be called from a host application, not to run as a stand-alone executable, we will create a `lib` project.
@@ -64,10 +64,10 @@ pub extern fn triple(x: i32) -> i32 {
 Next, you can compile the Rust source code into WebAssembly bytecode using the command below. 
 
 ```text
-$ cargo +nightly build --target wasm32-wasi --release
+$ cargo +nightly build --target wasm32-unknown-unknown --release
 ```
 
-The WebAssembly bytecode file is `target/wasm32-wasi/release/triple_lib.wasm`.
+The WebAssembly bytecode file is `target/wasm32-unknown-unknown/release/triple_lib.wasm`.
 
 #### **The JavaScript host**
 
