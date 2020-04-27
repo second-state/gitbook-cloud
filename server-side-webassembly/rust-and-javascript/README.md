@@ -6,7 +6,10 @@ description: >-
 
 # Rust and JavaScript
 
-The role of WebAssembly is not \(yet\) to replace JavaScript, but to enhance JavaScript by taking over computationally intensive tasks. Similarly, it is not \(yet\) to replace native applications or libraries, but to provide a safe sandbox for native and user submitted code. In server side Node.js applications, that translates to functions written in Rust that can be called from a JavaScript host program.
+The role of WebAssembly is not \(yet\) to replace JavaScript, but to enhance JavaScript by taking over computationally intensive tasks. Similarly, it is not \(yet\) to replace native applications or libraries, but to provide a safe sandbox for native and user submitted code. In server side Node.js applications, that translates to 
+
+* JavaScript can call Rust functions running inside WebAssembly. \[[See how](pass-any-argument-and-return-any-value.md)\]
+* Rust functions in WebAssembly can call JavaScript functions. \[[See how](call-javascript-functions-from-rust.md)\]
 
 {% hint style="info" %}
 Before you start, make sure that you have gone through the [previous tutorial to set up a Node.js application in Rust](../getting-started/). You should have [`ssvmup`](https://www.npmjs.com/package/ssvmup) and [`ssvm`](https://www.npmjs.com/package/ssvm) NPM modules installed through the last tutorial.

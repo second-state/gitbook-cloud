@@ -4,13 +4,7 @@ description: High performance Rust + JavaScript hybrid apps in Node.js
 
 # Getting started
 
-There are great use cases for [WebAssembly on the server-side](../why/), especially for AI, blockchain, and big data applications. In this tutorial, I will show you how to incorporate WebAssembly functions, written in Rust, into Node.js applications on the server.
-
-We use the Second State Virtual Machine \(SSVM\) , an open source WebAssembly runtime optimized for server-side applications, together with Node.js. The SSVM provides not only a WebAssembly runtime in Node.js, but also a compiler toolchain for Rust and JavaScript.
-
-> While Node.js comes with a default WebAssmebly runtime inside its V8 JavaScript engine, V8 is not designed to handle the performance and complex integration requirements of server-side applications. Compared with V8, the server-optimized SSVM is more performant, integrates better with JavaScript, provides access to external enterprise resources, and supports finely grained metering.
-
-The demo application is a Rust + JavaScript hybrid application. It combines the performance of Rust, safety and portability of WebAssembly, and ease of use of JavaScript.
+There are great use cases for [WebAssembly on the server-side](../why/), especially for AI, blockchain, and big data applications. In this tutorial, I will show you how to incorporate WebAssembly functions, written in Rust, into Node.js applications on the server. The demo application combines the performance of Rust, safety and portability of WebAssembly, and ease of use of JavaScript.
 
 * The host application is a Node.js web application written in JavaScript. It makes WebAssembly function calls.
 * The WebAssembly bytecode program is written in Rust. It runs inside the SSVM, and is called from the Node.js web application.
@@ -19,18 +13,16 @@ The demo application is a Rust + JavaScript hybrid application. It combines the 
 The source code of the tutorial is [here](https://github.com/second-state/wasm-learning/tree/master/nodejs/hello).
 {% endhint %}
 
-{% hint style="info" %}
-If you just want to try it out and do not wish to setup dev tools on your own machine, you can [fork this repository](https://github.com/second-state/ssvm-nodejs-starter/fork) and have GitHub [build and test](https://github.com/second-state/ssvm-nodejs-starter/actions) your code for you! [See instructions here](the-no-software-approach.md).
-{% endhint %}
-
 #### **Setup**
 
-The `ssvmup` npm module installs the Second State Virtual Machine \(SSVM\) into Node.js as a native `addon`, and provides the necessary compiler tools. Follow the steps below to install Rust and the `ssvmup` tool.
+> We use the Second State Virtual Machine \(SSVM\) , an open source WebAssembly runtime optimized for server-side applications, together with Node.js.
+
+First, let's install Rust and Node.js. If you have already done it, you can skip these steps.
 
 ```text
 # Prerequisite
-$ apt-get update
-$ apt install -y build-essential curl wget git vim libboost-all-dev
+$ sudo apt-get update
+$ sudo apt install -y build-essential curl wget git vim libboost-all-dev
 
 # Install rust
 $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -43,7 +35,11 @@ $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bas
 # Install node
 $ nvm install v10.19.0
 $ nvm use v10.19.0
+```
 
+The `ssvmup` npm module installs the Second State Virtual Machine \(SSVM\) into Node.js as a native `addon`, and provides the necessary compiler tools. Follow the steps below to install Rust and the `ssvmup` tool.
+
+```text
 # Install ssvmup toolchain
 $ npm install -g ssvmup # Append --unsafe-perm if permission denied
 
@@ -140,5 +136,11 @@ hello Wasm
 
 #### **What’s next?**
 
-Now we have seen a very simple example to call a Rust function from JavaScript in a Node.js application. In the next several tutorials, we will look into more complex examples of Rust JavaScript interaction using the SSVM. Let's start with [a review of all input output data types](../rust-and-javascript/) supported in the SSVM Rust JavaScript bridge. After that, we will cover examples of cryptography, machine learning, data management, and artificial intelligence.
+Now we have seen a very simple example to call a Rust function from JavaScript in a Node.js application. 
+
+{% hint style="info" %}
+If you just want to try it out and do not wish to setup dev tools on your own machine, you can [fork this repository](https://github.com/second-state/ssvm-nodejs-starter/fork) and have GitHub [build and test](https://github.com/second-state/ssvm-nodejs-starter/actions) your code for you! [See instructions here](the-no-software-approach.md).
+{% endhint %}
+
+In the next several tutorials, we will look into more complex examples of Rust JavaScript interaction using the SSVM. Let's start with [a review of all input output data types](../rust-and-javascript/) supported in the SSVM Rust JavaScript bridge. After that, we will cover examples of cryptography, machine learning, data management, and artificial intelligence.
 
