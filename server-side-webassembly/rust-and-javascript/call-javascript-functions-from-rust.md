@@ -4,7 +4,7 @@ description: >-
   system resources
 ---
 
-# Calling JavaScript functions from Rust
+# Calling Node.js from Rust
 
 In the previous tutorials, we discussed the rationale for Rust + Node.js hybrid apps. They combine Rust's _**performance**_, WebAssembly's _**security and portability**_, and JavaScript's _**ease-of-use**_. A typical Rust + Node.js hybrid app works like this.
 

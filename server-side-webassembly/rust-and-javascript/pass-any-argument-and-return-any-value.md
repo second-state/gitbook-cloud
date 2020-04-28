@@ -1,8 +1,8 @@
 ---
-description: Call any Rust function from JavaScript via JSON
+description: Passing any argument and return any value
 ---
 
-# Passing any argument and return any value
+# Calling Rust from Node.js
 
 While SSVM only supports a limited number of types as we discussed in the [previous article](supported-types.md), with JSON support, you can call Rust functions with any number of input parameters and return any number of return values of any type. That allows us to take advantage of any Rust libraries and crates in the ecosystem.
 
