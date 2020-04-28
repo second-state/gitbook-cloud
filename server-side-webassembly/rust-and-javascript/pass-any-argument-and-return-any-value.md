@@ -105,17 +105,10 @@ The result are files in the `pkg/` directory. the `.wasm` file is the WebAssembl
 
 #### **The Node.js host application**
 
-Next, let’s create a node folder for the Node.js web application. Copy over the generated JavaScript module files.
+Next, go to the `node` folder and examine the JavaScript program `app.js`. It shows how to call the Rust functions. You will first need to construct the call arguments into a JavaScript array \(tuple\), and then pass the serialized JSON string to the Rust function. The Rust return value is deserialized into a tuple of values as well.
 
 ```text
-$ mkdir node
-$ cp pkg/* node/
-```
-
-Below is the node application `app.js`. It shows how to call the Rust functions. You will first need to construct the call arguments into a JavaScript array \(tuple\), and then pass the serialized JSON string to the Rust function. The Rust return value is deserialized into a tuple of values as well.
-
-```text
-const { circumference, area, solve, draw } = require('./json_io_lib.js');
+const { circumference, area, solve, draw } = require('../pkg/json_io_lib.js');
 
 var x = 10.;
 console.log( circumference(JSON.stringify(x)) );

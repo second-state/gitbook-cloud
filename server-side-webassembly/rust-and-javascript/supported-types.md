@@ -117,14 +117,7 @@ The result are files in the `pkg/` directory. the `.wasm` file is the WebAssembl
 
 #### **The Node.js host application**
 
-Next, let’s create a node folder for the Node.js web application. Copy over the generated JavaScript module files.
-
-```text
-$ mkdir node
-$ cp pkg/* node/
-```
-
-Below is the node application `app.js`. It shows how to call the Rust functions. As you can see `String` and `&str` are simply strings in JavaScript, `i32` are numbers, and `Vec<u8>` or `&[8]` are JavaScript `Uint8Array`. JavaScript objects need to go through `JSON.stringify()` or `JSON.parse()` before being passed into or returned from Rust functions.
+Next, go to the `node` folder and examine the JavaScript program `app.js`. It shows how to call the Rust functions. As you can see `String` and `&str` are simply strings in JavaScript, `i32` are numbers, and `Vec<u8>` or `&[8]` are JavaScript `Uint8Array`. JavaScript objects need to go through `JSON.stringify()` or `JSON.parse()` before being passed into or returned from Rust functions.
 
 ```text
 const { say, obfusticate, lowest_common_denominator, sha3_digest, keccak_digest, create_line } = require('./functions_lib.js');

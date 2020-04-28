@@ -90,18 +90,10 @@ The result are files in the `pkg/` directory. the `.wasm` file is the WebAssembl
 
 #### **The Node.js host application**
 
-Next, let’s create a `node` folder for the Node.js web application. Copy over the generated JavaScript module files.
+Next, go to the `node` folder and examine the JavaScript program `app.js`. With the generated `hello_lib.js` module, it is very easy to write JavaScript to call WebAssembly functions. Below is the node application `app.js`. It simply imports the `say()` function from the generated module. The node application takes the `name` parameter from incoming an HTTP GET request, and responds with “hello `name`”.
 
 ```text
-$ mkdir node
-$ cp pkg/hello_lib_bg.wasm node/
-$ cp pkg/hello_lib.js node/
-```
-
-With the generated `hello_lib.js` module, it is very easy to write JavaScript to call WebAssembly functions. Below is the node application `app.js`. It simply imports the `say()` function from the generated module. The node application takes the `name` parameter from incoming an HTTP GET request, and responds with “hello `name`”.
-
-```text
-const { say } = require('./hello_lib.js');
+const { say } = require('../pkg/hello_lib.js');
 
 const http = require('http');
 const url = require('url');
