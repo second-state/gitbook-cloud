@@ -65,7 +65,7 @@ path = "src/lib.rs"
 crate-type =["cdylib"]
 
 [dependencies]
-wasm-bindgen = "0.2.59"
+wasm-bindgen = "=0.2.61"
 ```
 
 Below is the content of the Rust program `src/lib.rs`. You can actually define multiple external functions in this library file, and all of them will be available to the host JaveScript app via WebAssembly.
