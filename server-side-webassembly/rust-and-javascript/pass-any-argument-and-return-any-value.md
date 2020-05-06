@@ -23,7 +23,7 @@ crate-type =["cdylib"]
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-wasm-bindgen = "0.2.59"
+wasm-bindgen = "=0.2.61"
 ```
 
 Below is the content of the Rust program `src/lib.rs`. It shows four functions.
