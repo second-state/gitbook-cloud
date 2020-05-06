@@ -42,6 +42,7 @@ In your Rust application, add the following dependency.
 
 ```text
 [dependencies]
+wasm-bindgen = "=0.2.61"
 nodejs-helper = "0.0.3"
 ```
 
