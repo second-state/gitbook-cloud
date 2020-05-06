@@ -39,7 +39,7 @@ num-integer = "0.1"
 sha3 = "0.8.2"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-wasm-bindgen = "0.2.59"
+wasm-bindgen = "=0.2.61"
 ```
 
 Below is the content of the Rust program `src/lib.rs`. Perhaps the most interesting is the `create_line()` function. It takes two JSON strings, each representing a `Point` struct, and returns a JSON string representing a `Line` struct. Notice that both the `Point` and `Line` structs are annotated with `Serialize` and `Deserialize` so that the Rust compiler automatically generates necessary code to support their conversion to and from JSON strings.
