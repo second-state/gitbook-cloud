@@ -18,7 +18,7 @@ In the [previous tutorial](./), we discussed how to create a hybrid JavaScript +
 
 First, open the [VSCode Codespaces](https://online.visualstudio.com/) web site and login with your Azure account. You can get a [free Azure account](https://azure.microsoft.com/en-us/free/).
 
-Next, create a new codespace from your forked repository. This step takes a few minutes. But once a codespace is created, subsequent openings only take seconds.
+Next, create a new codespace. Put your forked repository into the Git Repository field. This step takes a few minutes. But once a codespace is created, subsequent openings only take seconds.
 
 ![](../../.gitbook/assets/vscode_create.png)
 
