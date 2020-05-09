@@ -49,7 +49,7 @@ $ curl http://127.0.0.1:3000/?name=SSVM
 hello SSVM
 ```
 
-In fact, you can run any Linux command from VSCode's built-in Terminal. You could run `ssumup build` to build, and then `node node/app.js` to run the Node.js application. The Node.js application could be a server application as we have shown here, or simply a command line program as many of our [later examples](../rust-and-javascript/pass-any-argument-and-return-any-value.md).
+In fact, you can run any Linux command from VSCode's built-in Terminal. You could run `ssvmup build` to build, and then `node node/app.js` to run the Node.js application. The Node.js application could be a server application as we have shown here, or simply a command line program as many of our [later examples](../rust-and-javascript/pass-any-argument-and-return-any-value.md).
 
 ![](../../.gitbook/assets/vscode_terminal_ssvm.png)
 
