@@ -16,6 +16,10 @@ In the [previous tutorial](./), we discussed how to create a hybrid JavaScript +
 
 ### VSCode codespaces steps
 
+{% hint style="info" %}
+VSCode Codespaces runs entirely in your browser and costs around $1 per work day. It is cheaper than a cup of coffee in the office. Alternatively, in steps 1-2 below, you could use locally installed VSCode and Docker, and [launch the IDE with your remote git repository](https://code.visualstudio.com/remote-tutorials/containers/getting-started).
+{% endhint %}
+
 First, open the [VSCode Codespaces](https://online.visualstudio.com/) web site and login with your Azure account. You can get a [free Azure account](https://azure.microsoft.com/en-us/free/).
 
 Next, create a new codespace. Put your forked repository into the Git Repository field. This step takes a few minutes. But once a codespace is created, subsequent openings only take seconds.
