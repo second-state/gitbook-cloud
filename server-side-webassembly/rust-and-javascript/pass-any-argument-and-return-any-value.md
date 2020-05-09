@@ -7,10 +7,10 @@ description: Passing any argument and return any value
 While SSVM only supports a limited number of types as we discussed in the [previous article](supported-types.md), with JSON support, you can call Rust functions with any number of input parameters and return any number of return values of any type. That allows us to take advantage of any Rust libraries and crates in the ecosystem.
 
 {% hint style="success" %}
-The source code of the tutorial is [here](https://github.com/second-state/wasm-learning/tree/master/nodejs/json_io). 
+The source code of the tutorial is [here](https://github.com/second-state/wasm-learning/tree/master/nodejs/json_io).
 {% endhint %}
 
-#### **WebAssembly program in Rust**
+## **WebAssembly program in Rust**
 
 In the `cargo` project called `json_io`, edit the `Cargo.toml` file to add a `[lib]` section and a `[dependencies]` section. Besides the `wasm-bindgen` dependency, notice the `serde` and `serde_json` dependencies. They allow us to serialize and deserialize complex Rust types to and from JSON strings, so that the data can be passed to and from JavaScript.
 
@@ -103,7 +103,7 @@ $ ssvmup build
 
 The result are files in the `pkg/` directory. the `.wasm` file is the WebAssembly bytecode program, and the `.js` files are for the JavaScript module.
 
-#### **The Node.js host application**
+## **The Node.js host application**
 
 Next, go to the `node` folder and examine the JavaScript program `app.js`. It shows how to call the Rust functions. You will first need to construct the call arguments into a JavaScript array \(tuple\), and then pass the serialized JSON string to the Rust function. The Rust return value is deserialized into a tuple of values as well.
 
@@ -133,7 +133,7 @@ $ node app.js
 {"points":[{"x":1.5,"y":3.8},{"x":2.5,"y":5.8}],"valid":true,"length":2.2360682,"desc":"A thin red line"}
 ```
 
-#### **What’s next?**
+## **What’s next?**
 
 With JSON support, we can call any Rust function from JavaScript. In the next several tutorials, we will put this into good use. The JavaScript host app will delegate computationally intensive tasks such as cryptography, machine learning, and artificial intelligence to Rust modules inside the SSVM WebAssembly runtime.
 

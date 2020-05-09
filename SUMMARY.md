@@ -7,7 +7,7 @@
 * [Why?](server-side-webassembly/why/README.md)
   * [WebAssembly vs native code](server-side-webassembly/why/webassembly-vs-native-code.md)
 * [Getting started](server-side-webassembly/getting-started/README.md)
-  * [The no software approach](server-side-webassembly/getting-started/the-no-software-approach.md)
+  * [VSCode codespaces template](server-side-webassembly/getting-started/the-no-software-approach.md)
 * [Rust and JavaScript](server-side-webassembly/rust-and-javascript/README.md)
   * [Supported types](server-side-webassembly/rust-and-javascript/supported-types.md)
   * [Calling Rust from Node.js](server-side-webassembly/rust-and-javascript/pass-any-argument-and-return-any-value.md)
@@ -31,5 +31,5 @@
 * [Rust and WebAssembly](related-technologies/rust-and-webassembly.md)
 * [WebAssembly in the browser](related-technologies/webassembly-in-the-browser.md)
 * [How to Learn Rust Without Installing Any Software](related-technologies/how-to-learn-rust-without-installing-any-software.md)
-* [How to Publish a no-code website in 10 minutes](related-technologies/untitled.md)
+* [How to Publish a no-code website in 10 minutes](related-technologies/untitled.md)
 

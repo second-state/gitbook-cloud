@@ -13,7 +13,7 @@ There are great use cases for [WebAssembly on the server-side](../why/), especia
 The source code of the tutorial is [here](https://github.com/second-state/wasm-learning/tree/master/nodejs/hello).
 {% endhint %}
 
-#### **Setup**
+## **Setup**
 
 > We use the Second State Virtual Machine \(SSVM\) , an open source WebAssembly runtime optimized for server-side applications, together with Node.js.
 
@@ -47,7 +47,7 @@ $ npm install -g ssvmup # Append --unsafe-perm if permission denied
 $ npm install ssvm
 ```
 
-#### **WebAssembly program in Rust**
+## **WebAssembly program in Rust**
 
 In this example, our Rust program appends the input string after “hello”. Let’s create a new `cargo` project. Since this program is intended to be called from a host application, not to run as a stand-alone executable, we will create a `hello` project.
 
@@ -88,7 +88,7 @@ $ ssvmup build
 
 The result are files in the `pkg/` directory. the `.wasm` file is the WebAssembly bytecode program, and the `.js` files are for the JavaScript module.
 
-#### **The Node.js host application**
+## **The Node.js host application**
 
 Next, go to the `node` folder and examine the JavaScript program `app.js`. With the generated `hello_lib.js` module, it is very easy to write JavaScript to call WebAssembly functions. Below is the node application `app.js`. It simply imports the `say()` function from the generated module. The node application takes the `name` parameter from incoming an HTTP GET request, and responds with “hello `name`”.
 
@@ -126,9 +126,9 @@ $ curl http://127.0.0.1:8080/?name=Wasm
 hello Wasm
 ```
 
-#### **What’s next?**
+## **What’s next?**
 
-Now we have seen a very simple example to call a Rust function from JavaScript in a Node.js application. 
+Now we have seen a very simple example to call a Rust function from JavaScript in a Node.js application.
 
 {% hint style="info" %}
 If you just want to try it out and do not wish to setup dev tools on your own machine, you can [fork this repository](https://github.com/second-state/ssvm-nodejs-starter/fork) and have GitHub [build and test](https://github.com/second-state/ssvm-nodejs-starter/actions) your code for you! [See instructions here](the-no-software-approach.md).

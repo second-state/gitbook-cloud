@@ -14,7 +14,7 @@ In the previous tutorials, we discussed the rationale for Rust + Node.js hybrid 
 In this tutorial, we will show you how to use the [`nodejs-helper`](https://crates.io/crates/nodejs-helper) crate to call Node.js functions. Rust functions can now access the file system, network, database, and other system resources from within the WebAssembly container.
 
 {% hint style="success" %}
-The source code of the tutorial is [here](https://github.com/second-state/wasm-learning/tree/master/nodejs/nodejs_example). 
+The source code of the tutorial is [here](https://github.com/second-state/wasm-learning/tree/master/nodejs/nodejs_example).
 {% endhint %}
 
 Let's see an example Rust function that gets the system time and prints to the standard output console, all from within a WebAssembly container.
@@ -28,7 +28,7 @@ pub fn utc_now() {
 }
 ```
 
-### Prerequisite
+## Prerequisite
 
 You must have Node.js installed with the following packages.
 
@@ -46,7 +46,7 @@ wasm-bindgen = "=0.2.61"
 nodejs-helper = "0.0.3"
 ```
 
-### Building and running
+## Building and running
 
 Use the following command to build your Rust application for WebAssembly.
 
@@ -56,7 +56,7 @@ $ wasm-pack build --target nodejs
 
 Now, let's look some concrete examples from the [example project](https://github.com/second-state/wasm-learning/tree/master/nodejs/nodejs_example).
 
-### Example: system time and console
+## Example: system time and console
 
 The Rust functions to access the system time and console resources are as follows.
 
@@ -102,7 +102,7 @@ America/Chicago
 Monday, April 27, 2020, CDT
 ```
 
-### Example: Sqlite database access
+## Example: Sqlite database access
 
 The Rust functions to create, update, and query a Sqlite database on the local file system are as follows.
 
@@ -163,7 +163,7 @@ $ node db.js
 3 : Imperator Colin
 ```
 
-### Example: HTTP network access
+## Example: HTTP network access
 
 The Rust functions to access web services via HTTP/HTTPS and then save content on the local file system are as follows.
 
@@ -204,7 +204,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy
 ... ...
 ```
 
-### Example: File system access and performance profiler
+## Example: File system access and performance profiler
 
 The Rust functions in this section read an image file from the local file system, resize it, and write back to the file system. It also uses the Javascript console tool to measure the time spent on each task.
 
@@ -271,18 +271,4 @@ Resize file: 1507.977ms
 ```
 
 That's it for now. The [`nodejs-helper`](https://crates.io/crates/nodejs-helper) crate is still a work-in-progress. We aim to eventually provide Rust APIs for all common system functions here. You are welcome to [fork and add to it](https://github.com/second-state/nodejs-helper).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

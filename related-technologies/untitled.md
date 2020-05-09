@@ -4,7 +4,7 @@ description: >-
   update. All for free!
 ---
 
-# How to Publish a no-code website in 10 minutes
+# How to Publish a no-code website in 10 minutes
 
 In this article, I'll introduce a no-code, no-software and no-cost solution to publishing sophisticated web sites managed by non-technical people. The full codebase is [on GitHub here](https://github.com/second-state/hugo-website/fork).
 

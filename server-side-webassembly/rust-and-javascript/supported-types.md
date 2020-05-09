@@ -4,7 +4,7 @@ description: Function call parameters and return value types
 
 # Supported types
 
-Currently, the SSVM's JavaScript to Rust bridge has the following constraints. 
+Currently, the SSVM's JavaScript to Rust bridge has the following constraints.
 
 * Rust call parameters can be any combo of `i32`, `String`, `&str`, `Vec<u8>`, and `&[u8]`
 * Return value can be `i32` or `String` or `Vec<u8>`
@@ -13,10 +13,10 @@ Currently, the SSVM's JavaScript to Rust bridge has the following constraints.
 As you will see in the examples, we believe that SSVM can support the vast majority of Rust applications and libraries, and make them available in Node.js. With JSON support, you can [call Rust functions with any number of input parameters and return any number of return values of any type](pass-any-argument-and-return-any-value.md).
 
 {% hint style="success" %}
-The source code of the tutorial is [here](https://github.com/second-state/wasm-learning/tree/master/nodejs/functions). 
+The source code of the tutorial is [here](https://github.com/second-state/wasm-learning/tree/master/nodejs/functions).
 {% endhint %}
 
-#### **WebAssembly program in Rust**
+## **WebAssembly program in Rust**
 
 In the `cargo` project called `functions`, edit the `Cargo.toml` file to add a `[lib]` section and a `[dependencies]` section. Besides the `wasm-bindgen` dependency, notice the `serde` and `serde_json` dependencies. They allow us to serialize and deserialize complex Rust types to and from JSON strings, so that the data can be passed to and from JavaScript.
 
@@ -94,7 +94,7 @@ pub fn create_line (p1: &str, p2: &str, desc: &str) -> String {
   let point1: Point = serde_json::from_str(p1).unwrap();
   let point2: Point = serde_json::from_str(p2).unwrap();
   let length = ((point1.x - point2.x) * (point1.x - point2.x) + (point1.y - point2.y) * (point1.y - point2.y)).sqrt();
-  
+
   let valid = if length == 0.0 { false } else { true };
   let line = Line { points: vec![point1, point2], valid: valid, length: length, desc: desc.to_string() };
   return serde_json::to_string(&line).unwrap();
@@ -115,7 +115,7 @@ $ ssvmup build
 
 The result are files in the `pkg/` directory. the `.wasm` file is the WebAssembly bytecode program, and the `.js` files are for the JavaScript module.
 
-#### **The Node.js host application**
+## **The Node.js host application**
 
 Next, go to the `node` folder and examine the JavaScript program `app.js`. It shows how to call the Rust functions. As you can see `String` and `&str` are simply strings in JavaScript, `i32` are numbers, and `Vec<u8>` or `&[8]` are JavaScript `Uint8Array`. JavaScript objects need to go through `JSON.stringify()` or `JSON.parse()` before being passed into or returned from Rust functions.
 
@@ -157,7 +157,7 @@ N dhvpx oebja sbk whzcf bire gur ynml qbt
   desc: 'A thin red line' }
 ```
 
-#### **What’s next?**
+## **What’s next?**
 
 With JSON support, we can get around the type restrictions and call any Rust function from JavaScript. All you need is a little `serde` wrapper. Let's see how to do this in the next article.
 
