@@ -53,11 +53,11 @@ $ curl http://127.0.0.1:3000/?name=SSVM
 hello SSVM
 ```
 
-In fact, you can run any Linux command from VSCode's built-in Terminal. You could run `ssvmup build` to build, and then `node node/app.js` to run the Node.js application. The Node.js application could be a server application as we have shown here, or simply a command line program as many of our [later examples](../rust-and-javascript/pass-any-argument-and-return-any-value.md).
+In fact, you can run any Linux command from VSCode's built-in Terminal. You could run `ssvmup build` to build, and then `node node/app.js` to run the Node.js application. The Node.js application could be a server application as we have shown here, or simply a command line program as many of our [later examples](../pass-any-argument-and-return-any-value.md).
 
 ![](../../.gitbook/assets/vscode_terminal_ssvm.png)
 
 That's it! VSCode has many useful features such as real time error detection and syntax highlighting as you type code, advanced Github integration, and integrations with many many development tools. Enjoy coding!
 
-Now continue to see more examples on how to build [complex](../rust-and-javascript/) Rust + JavaScript hybrid applications for cryptography, machine learning, data management, and artificial intelligence.
+Now continue to see more examples on how to build [complex]() Rust + JavaScript hybrid applications for cryptography, machine learning, data management, and artificial intelligence.
 

@@ -1,8 +1,18 @@
 ---
-description: The Second State VM (SSVM) is a WebAssembly runtime designed for enterprises
+description: How to access resources outside of the WebAssembly sandbox
 ---
 
-# Enterprise WebAssembly
+# Access system resources
 
-Coming soon!
+The WebAssembly VM provides a sandbox to ensure application safety. However, this sandbox is also a very limited "computer" that has no concept of file system, network, or even a clock or timer. That is very limiting for the Rust programs running inside WebAssembly.
+
+In the Second State VM \(SSVM\), our innovation is a set of standard and proprietary \(still open source\) extensions that allow WebAssembly bytecode applications to access system and external resources. Read on!
+
+{% page-ref page="wasi.md" %}
+
+{% page-ref page="the-storage-interface.md" %}
+
+{% page-ref page="the-inference-hardware-interface.md" %}
+
+
 
