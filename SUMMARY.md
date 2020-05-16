@@ -17,6 +17,7 @@
   * [Encryption and decryption](server-side-webassembly/examples-and-use-cases/encryption-and-decryption.md)
   * [Machine learning](server-side-webassembly/examples-and-use-cases/machine-learning.md)
   * [Artificial intelligence](server-side-webassembly/examples-and-use-cases/artificial-intelligence.md)
+* [SSVM Performance](server-side-webassembly/performance.md)
 
 ## Function as a Service
 
@@ -28,7 +29,6 @@
 * [Rust and WebAssembly](related-technologies/rust-and-webassembly.md)
 * [WebAssembly in the browser](related-technologies/webassembly-in-the-browser.md)
 * [Access JavaScript from Rust](related-technologies/call-javascript-functions-from-rust.md)
-* [SSVM Performance](related-technologies/performance.md)
 * [How to Learn Rust Without Installing Any Software](related-technologies/how-to-learn-rust-without-installing-any-software.md)
 * [How to Publish a no-code website in 10 minutes](related-technologies/untitled.md)
 
