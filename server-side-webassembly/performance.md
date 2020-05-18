@@ -12,7 +12,7 @@ The Second State Virtual Machine \([SSVM](https://github.com/second-state/ssvm)\
 The benchmark scores are in seconds. The smaller the better. The 👍emoji marks the two best performing runtimes for each benchmark. The docker+native runtime is a simple Ubuntu Docker on an Ubuntu host.
 {% endhint %}
 
-|  | [SSVM](https://github.com/second-state/SSVM)❤️ | [Lucet](https://github.com/bytecodealliance/lucet) | [WAVM](https://github.com/WAVM/WAVM) | [V8](https://github.com/v8/v8) | docker+native |
+|  | [SSVM](https://github.com/second-state/SSVM)❤️ | [Lucet](https://github.com/bytecodealliance/lucet) / [wasmtime](https://github.com/bytecodealliance/wasmtime) | [WAVM](https://github.com/WAVM/WAVM) | [V8](https://github.com/v8/v8) | docker+native |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | nop 0 | 0.003👍 | 0.002👍 | 0.024 | 0.056 | 0.849 |
 | cat-sync 0 | 0.007👍 | 0.573 | 0.029👍 | 0.06 | 0.826 |

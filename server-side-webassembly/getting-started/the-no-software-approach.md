@@ -59,5 +59,3 @@ In fact, you can run any Linux command from VSCode's built-in Terminal. You coul
 
 That's it! VSCode has many useful features such as real time error detection and syntax highlighting as you type code, advanced Github integration, and integrations with many many development tools. Enjoy coding!
 
-Now continue to see more examples on how to build [complex]() Rust + JavaScript hybrid applications for cryptography, machine learning, data management, and artificial intelligence.
-
