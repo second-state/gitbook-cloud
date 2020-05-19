@@ -258,5 +258,5 @@ Now we have seen a very simple example to call a Rust function from JavaScript i
 If you just want to try it out and do not wish to setup dev tools on your own machine, you can [fork this repository](https://github.com/second-state/ssvm-nodejs-starter/fork) and [use the VSCode IDE to open it](the-no-software-approach.md).
 {% endhint %}
 
-In the next article, we will discuss how to .
+In the next article, we will discuss how to pass arbitrary arguments from a JavaScript program to Rust.
 
