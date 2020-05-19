@@ -7,7 +7,7 @@
 * [Why?](server-side-webassembly/why/README.md)
   * [WebAssembly vs native code](server-side-webassembly/why/webassembly-vs-native-code.md)
 * [Getting started](server-side-webassembly/getting-started/README.md)
-  * [VSCode codespaces](server-side-webassembly/getting-started/the-no-software-approach.md)
+  * [VS Codespaces](server-side-webassembly/getting-started/the-no-software-approach.md)
 * [Rust functions in Node.js](server-side-webassembly/pass-any-argument-and-return-any-value.md)
 * [Access system resources](server-side-webassembly/enterprise-webassembly/README.md)
   * [WASI](server-side-webassembly/enterprise-webassembly/wasi.md)

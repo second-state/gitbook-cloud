@@ -4,9 +4,11 @@ description: >-
   any software
 ---
 
-# VSCode codespaces
+# VS Codespaces
 
 In the [previous tutorial](./), we discussed how to create a hybrid JavaScript + Rust application for Node.js. In this tutorial, I will show you how to experiment with development without installing any developer tools software.
+
+![https://www.youtube.com/watch?v=j85cbNsciOs](../../.gitbook/assets/ssvm-edited-without-music.gif)
 
 \*\*\*\*[**Fork this GitHub repository**](https://github.com/second-state/ssvm-nodejs-starter/fork) to get started. In your fork, you can use GitHub's web UI to edit source code files.
 
@@ -14,10 +16,10 @@ In the [previous tutorial](./), we discussed how to create a hybrid JavaScript +
 * The JavaScript files are in the `node` directory and they can access the Rust functions.
   * The `node/app.js` file contains the application.
 
-### VSCode codespaces steps
+### VS Codespaces steps
 
 {% hint style="info" %}
-VSCode Codespaces runs entirely in your browser and costs around $1 per work day. It is cheaper than a cup of coffee in the office. Alternatively, in steps 1-2 below, you could use locally installed VSCode and Docker, and [launch the IDE with your remote git repository](https://code.visualstudio.com/remote-tutorials/containers/getting-started).
+VS Codespaces runs entirely in your browser and costs around $1 per work day. It is cheaper than a cup of coffee in the office. Alternatively, in steps 1-2 below, you could use locally installed VSCode and Docker, and [launch the IDE with your remote git repository](https://code.visualstudio.com/remote-tutorials/containers/getting-started).
 {% endhint %}
 
 First, open the [VSCode Codespaces](https://online.visualstudio.com/) web site and login with your Azure account. You can get a [free Azure account](https://azure.microsoft.com/en-us/free/).
