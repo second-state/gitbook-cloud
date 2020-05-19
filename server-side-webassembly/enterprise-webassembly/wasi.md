@@ -67,7 +67,7 @@ $ node node/app.js
 ... ...
 ```
 
-
+More to come later for WASI functions to access the file system, console / stdout, time / clock, and network requests.
 
 
 
