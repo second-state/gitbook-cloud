@@ -12,7 +12,7 @@
 * [Access system resources](server-side-webassembly/enterprise-webassembly/README.md)
   * [WASI](server-side-webassembly/enterprise-webassembly/wasi.md)
   * [The storage interface](server-side-webassembly/enterprise-webassembly/the-storage-interface.md)
-  * [The inference hardware interface](server-side-webassembly/enterprise-webassembly/the-inference-hardware-interface.md)
+  * [The inference interface](server-side-webassembly/enterprise-webassembly/the-inference-hardware-interface.md)
 * [Examples and use cases](server-side-webassembly/examples-and-use-cases/README.md)
   * [Encryption and decryption](server-side-webassembly/examples-and-use-cases/encryption-and-decryption.md)
   * [Machine learning](server-side-webassembly/examples-and-use-cases/machine-learning.md)
