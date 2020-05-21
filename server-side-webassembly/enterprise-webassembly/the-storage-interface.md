@@ -10,6 +10,10 @@ The [SSVM storage interface](https://github.com/second-state/specs/blob/master/s
 The storage interface provides much higher performance and data throughput than using WASI calls to access database on the file system or via network. It is also much easier to work with than most database APIs in Rust.
 {% endhint %}
 
+{% hint style="success" %}
+The example source code for this tutorial is [here](https://github.com/second-state/wasm-learning/tree/master/nodejs/storage).
+{% endhint %}
+
 ### Dependency
 
 You will need to include the [rust\_storage\_interface\_library](https://crates.io/crates/rust_storage_interface_library) crate in your `Cargo.toml`. In many cases, you will also need [serde](https://serde.rs/) dependency for storing and loading structs. Add dependency for [serialize\_deserialize\_u8\_i32](https://crates.io/crates/serialize_deserialize_u8_i32) if you wish to store `Vec<u8>` or `&[u8]` byte arrays.
@@ -17,8 +21,10 @@ You will need to include the [rust\_storage\_interface\_library](https://crates.
 ```text
 [dependencies]
 rust_storage_interface_library = "^0.1"
-serde = { version = "^1.0", features = ["derive"] }
 serialize_deserialize_u8_i32 = "^0.1"
+serde = { version = "^1.0", features = ["derive"] }
+serde_json = "1.0"
+wasm-bindgen = "=0.2.61"
 ```
 
 In your Rust code, do this.
