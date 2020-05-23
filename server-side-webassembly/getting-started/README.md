@@ -10,7 +10,7 @@ There are great use cases for [WebAssembly on the server-side](../why/), especia
 * The WebAssembly bytecode program is written in Rust. It runs inside the SSVM, and is called from the Node.js web application.
 
 {% hint style="success" %}
-The source code of the tutorial is [here](https://github.com/second-state/wasm-learning/tree/master/nodejs/hello).
+The source code of the tutorial is [here](https://github.com/second-state/wasm-learning/tree/master/nodejs/hello). If you just want to try it out, you can [fork this repository](https://github.com/second-state/ssvm-nodejs-starter/fork) and [use the VSCode IDE to open it](the-no-software-approach.md).
 {% endhint %}
 
 ## **Setup**
@@ -252,11 +252,5 @@ N dhvpx oebja sbk whzcf bire gur ynml qbt
 
 ## **What’s next?**
 
-Now we have seen a very simple example to call a Rust function from JavaScript in a Node.js application.
-
-{% hint style="info" %}
-If you just want to try it out and do not wish to setup dev tools on your own machine, you can [fork this repository](https://github.com/second-state/ssvm-nodejs-starter/fork) and [use the VSCode IDE to open it](the-no-software-approach.md).
-{% endhint %}
-
-In the next article, we will discuss how to pass arbitrary arguments from a JavaScript program to Rust.
+Now we have seen a very simple example to call a Rust function from JavaScript in a Node.js application. In the next article, we will discuss how to pass arbitrary arguments from a JavaScript program to Rust.
 
