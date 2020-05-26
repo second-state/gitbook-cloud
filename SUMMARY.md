@@ -25,11 +25,11 @@
 
 ## Related technologies
 
+* [Deno, Rust and WebAssembly](related-technologies/deno-rust-and-webassembly.md)
 * [A Rusty hello world](related-technologies/a-rusty-hello-world.md)
 * [Rust and WebAssembly](related-technologies/rust-and-webassembly.md)
 * [WebAssembly in the browser](related-technologies/webassembly-in-the-browser.md)
 * [Access JavaScript from Rust](related-technologies/call-javascript-functions-from-rust.md)
 * [How to Learn Rust Without Installing Any Software](related-technologies/how-to-learn-rust-without-installing-any-software.md)
 * [How to Publish a no-code website in 10 minutes](related-technologies/untitled.md)
-* [Deno, Rust and WebAssembly](related-technologies/deno-rust-and-webassembly.md)
 
