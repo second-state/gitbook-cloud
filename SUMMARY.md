@@ -31,4 +31,5 @@
 * [Access JavaScript from Rust](related-technologies/call-javascript-functions-from-rust.md)
 * [How to Learn Rust Without Installing Any Software](related-technologies/how-to-learn-rust-without-installing-any-software.md)
 * [How to Publish a no-code website in 10 minutes](related-technologies/untitled.md)
+* [Deno, Rust and WebAssembly](related-technologies/deno-rust-and-webassembly.md)
 
