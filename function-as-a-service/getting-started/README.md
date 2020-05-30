@@ -95,7 +95,7 @@ The result are files in the `pkg/` directory. the `.wasm` file is the WebAssembl
 Use the following `curl` command to upload the `wasm` file to the FaaS service. In the beta stage, it is all FREE!
 
 ```text
-curl --location --request POST 'https://rpc.ssvm.secondstate.io:8081/api/executables' \
+$ curl --location --request POST 'https://rpc.ssvm.secondstate.io:8081/api/executables' \
 --header 'Content-Type: application/octet-stream' \
 --header 'SSVM-Description: say hello' \
 --data-binary 'pkg/hello_lib_bg.wasm'
@@ -112,7 +112,7 @@ It returns an ID for the `wasm` file in the FaaS system.
 Use the following `curl` command to run the `say()` function in the wasm program. The argument `s` for this function call is passed in as a string in the HTTP request body.
 
 ```text
-curl --location --request POST 'https://rpc.ssvm.secondstate.io:8081/api/run/123/say' \
+$ curl --location --request POST 'https://rpc.ssvm.secondstate.io:8081/api/run/123/say' \
 --header 'Content-Type: text/plain' \
 --data-raw 'Second State FaaS'
 ```
@@ -125,7 +125,7 @@ hello Second State FaaS
 
 ## What's next
 
-In the next article, we will learn how to make the the Rust functions stateful. That is where the function parameter `context` comes into play.
+In the next article, we will learn how to give the Rust function a persistence context to customize its runtime behavior. That is where the first function parameter `context` comes into play.
 
 ## \*\*\*\*
 
