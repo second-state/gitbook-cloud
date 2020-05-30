@@ -127,5 +127,3 @@ hello Second State FaaS
 
 In the next article, we will learn how to give the Rust function a persistence context to customize its runtime behavior. That is where the first function parameter `context` comes into play.
 
-## \*\*\*\*
-
