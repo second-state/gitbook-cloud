@@ -60,7 +60,7 @@ It is possible for a function to initiate further processing via the use of a ca
 * Please ensure that the `callback` object is at the top level as shown below (3)
 
 (1) Before we begin with an example, please note that it is important to adhere to the following request structure when creating your own callback object in your Rust / Wasm code.
-```
+```Javascript
 {
     "method": "POST",
     "hostname": "rpc.ssvm.secondstate.io",
@@ -90,7 +90,7 @@ This is the standard request format which Javascript/Nodejs uses. It will be pas
 }
 ```
 (3) Please note that the `callback` is a standalone object which is always at the top level (along side other top level objects as required)
-```
+```Javascript
 {
 	"function": {
 		"name": "new template name"
