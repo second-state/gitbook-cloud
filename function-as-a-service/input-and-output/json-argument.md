@@ -54,8 +54,12 @@ json_as_object["outer_object"]["middle_nested"]["inner_nested"]["value_to_use_in
 ## Callback_url argument
 It is possible for a function to initiate further processing via the use of a callback. This functionality is optional, but very useful and worth learning about.
 
-**Important note:**
-Before we begin with an example, please note that it is important to adhere to the following request structure when creating your own callback object in your Rust / Wasm code.
+**Important notes:**
+* Please ensure that the data for the callback object adheres to the standard shown below (1)
+* Please ensure that the data for the callback object is wrapped in a single `callback` wrapper as shown below (2)
+* Please ensure that the `callback` object is at the top level as shown below (3)
+
+(1) Before we begin with an example, please note that it is important to adhere to the following request structure when creating your own callback object in your Rust / Wasm code.
 ```
 {
     "method": "POST",
@@ -70,7 +74,7 @@ Before we begin with an example, please note that it is important to adhere to t
 ```
 This is the standard request format which Javascript/Nodejs uses. It will be passed straight into a request programatically and therefore the structure and the key:value entries must conform to the standard [outlined here](https://nodejs.org/api/https.html#https_https_request_options_callback).
 
-Please note that over and above the example we have just used ... there **must be an additional `callback` object which wraps the standard request format**. Here is the complete example of what your callback argument should look like; note the `{"callback": {}}` wrapper.
+(2) Please note that over and above the example we have just used ... there **must be an additional `callback` object which wraps the standard request format**. Here is the complete example of what your callback argument should look like; note the `{"callback": {}}` wrapper.
 ```Javascript
 {
 	"callback": {
@@ -85,7 +89,24 @@ Please note that over and above the example we have just used ... there **must b
 	}
 }
 ```
-
+(3) Please note that the `callback` is a standalone object which is always at the top level (along side other top level objects as required)
+```
+{
+	"function": {
+		"name": "new template name"
+	},
+	"callback": {
+		"method": "POST",
+		"hostname": "rpc.ssvm.secondstate.io",
+		"port": 8081,
+		"path": "/api/run/1/my_function",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"maxRedirects": 20
+	}
+}
+```
 ### Callback example
 In some cases the results of a specific function's output may be used for another function's input. This function as a service infrastructure allows a callback_url argument to be passed into a function, along with the function's other arguments.  
 
