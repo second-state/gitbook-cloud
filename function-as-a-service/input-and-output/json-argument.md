@@ -7,7 +7,7 @@ description: Use JSON strings as function arguments
 ## Strongly typed data structures
 Rust is able to map a JSON string to a Rust object using what is known as a [strongly typed data structure](https://docs.serde.rs/serde_json/#parsing-json-as-strongly-typed-data-structures). The following Rust code defines the `Person` data before compile time.
 
-```
+```rust
 struct Person {
     name: String,
     age: u8,
@@ -15,11 +15,11 @@ struct Person {
 }
 ```
 The Rust code can create a `Person` object, in a strongly typed fashion, using the following syntax.
-```
+```rust
 let p: Person = serde_json::from_str(data)?;
 ```
 In the case above, the JSON string used to create the object would be as follows.
-```
+```rust
 {
 	"name": "John Doe",
 	"age": 43,
@@ -54,6 +54,22 @@ json_as_object["outer_object"]["middle_nested"]["inner_nested"]["value_to_use_in
 ## Callback_url argument
 It is possible for a function to initiate further processing via the use of a callback. This functionality is optional, but very useful and worth learning about.
 
+Before we begin with an example, please note that it is important to adhere to the following request structure when creating your own callback object in your Rust / Wasm code.
+```
+{
+    "method": "POST",
+    "hostname": "rpc.ssvm.secondstate.io",
+    "port": 8081,
+    "path": "/api/run/1/my_function",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "maxRedirects": 20
+}
+```
+This is the standard request format which Javascript/Nodejs uses. It will be passed straight into a request programatically and therefore the structure and the key:value entries must conform to the standard [outlined here](https://nodejs.org/api/https.html#https_https_request_options_callback).
+
+### Callback example
 In some cases the results of a specific function's output may be used for another function's input. This function as a service infrastructure allows a callback_url argument to be passed into a function, along with the function's other arguments.  
 
 Consider the following Rust code
