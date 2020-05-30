@@ -11,7 +11,36 @@ The way to accomplish that is to return a JSON string from the function. If the 
 In the following example, the `say()` function returns a JSON `callback`, which requests SendGrid to send the hello messages as an email. The Rust function is as follows.
 
 ```text
-TBD
+use wasm_bindgen::prelude::*;
+
+#[wasm_bindgen]
+pub fn say(context: &str, s: &str) -> String {
+  let r = String::from("hello ");
+  let ret = r#"
+    {
+      'callback': {
+        'method': 'POST',
+        'hostname': 'api.sendgrid.com',
+        'port': 443,
+        'path': '/v3/mail/send',
+        'headers': {
+          'Content-Type': 'application/json',
+          'authorization': 'Bearer {}'
+        },
+        'maxRedirects': 20
+      },
+      'personalizations': {
+        [{
+          'to':[{'email':'{}','name':''}],
+          'subject':'{}'
+        }],
+        'from':{'email':'{}','name':''}
+      }
+    }
+  "#
+  
+  return format!(ret, "auth_token_123", "dev@secondstate.io", r + &s, "alice@secondstate.io");
+}
 ```
 
 The `callback` object in the return value is as follows. It conforms to the Node.js request options specification.
@@ -33,18 +62,18 @@ The `callback` object in the return value is as follows. It conforms to the Node
 The HTTP body sent to SendGrid is as follows.
 
 ```text
-{"personalizations":
+{'personalizations':
   [{
-    "to":[{"email":"john.doe@example.com","name":"John Doe"}],
-    "subject":"hello email"
+    'to':[{'email':"dev@example.com","name":""}],
+    'subject':'hello email'
   }],
-  "from":{"email":"sam.smith@example.com","name":"Sam Smith"}
+  'from':{'email':'alice@secondstate.io','name':''}
 }
 ```
 
 The recipient email address and auth token are currently hardcoded in the Rust source code. But you can use the stateful context in the previous article to configure them! Just set a JSON configuration object in the state. Try it!
 
-
+You can see that the `callback` could direct the result from one function to another, and hence chaining multiple functions together.
 
 
 
