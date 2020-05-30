@@ -36,6 +36,65 @@ If the JSON string being presented to the Rust application is likely to have ext
 
 ## Untyped data structures
 
-## callback_url argument
+Instead of writing complex nested Structs before compile time, you could use [serde_json's generic Value type](https://docs.serde.rs/serde_json/value/enum.Value.html) as demonstrated in the following code. This approach allows for maximum flexiblility.
+```rust
+use serde_json;
+use serde_json::{Value};
+
+#[no_mangle]
+fn process(s: &str){
+    let json_as_object: Value = serde_json::from_str(s).unwrap();
+}
+```
+The above approach allows the string to be parsed, regardless of its structural complexity. Once parsed, you can simply access each of the keys and values using syntax like the following.
+```rust
+json_as_object["outer_object"]["middle_nested"]["inner_nested"]["value_to_use_in_app"]
+```
+
+## Callback_url argument
 It is possible for a function to initiate further processing via the use of a callback. This functionality is optional, but very useful and worth learning about.
+
+In some cases the results of a specific function's output may be used for another function's input. This function as a service infrastructure allows a callback_url argument to be passed into a function, along with the function's other arguments.  
+
+Consider the following Rust code
+```rust
+use serde_json;
+use serde_json::json;
+use serde_json::Value;
+
+fn process<'a>(_callback_data: &'a str, _function_data:  &'a str) -> &'a str {
+    let callback_data_as_object: Value = serde_json::from_str(_callback_data).unwrap();
+    let function_data_as_object: Value = serde_json::from_str(_function_data).unwrap();
+    let answer: u64 = function_data_as_object["left_value"].as_u64().unwrap() + function_data_as_object["right_value"].as_u64().unwrap();
+    println!("Answer: {:?}", answer);
+    let response_with_callback = json!({
+    "callback_data": _callback_data,
+    "function_data": {"answer": answer}
+    });
+    &response_with_callback.to_string()
+}
+fn main() {
+    let callback_data_to_use = json!({
+        "method": "POST",
+        "hostname": "rpc.ssvm.secondstate.io",
+        "port": 8081,
+        "path": "/api/run/1/my_function",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+      "maxRedirects": 20
+    });
+
+    let function_data_to_use = json!({
+        "left_value": 1,
+        "right_value": 1,
+    });
+
+    let returned_string = process(
+        &callback_data_to_use.to_string(),
+        &function_data_to_use.to_string(),
+    );
+}
+
+```
 
