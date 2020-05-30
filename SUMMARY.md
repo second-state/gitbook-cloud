@@ -21,7 +21,17 @@
 
 ## Function as a Service
 
-* [Getting started](function-as-a-service/getting-started.md)
+* [Getting started](function-as-a-service/getting-started/README.md)
+  * [Stateful function](function-as-a-service/getting-started/stateful-function.md)
+  * [Send result to another service](function-as-a-service/getting-started/send-result-to-another-service.md)
+* [Input and output](function-as-a-service/input-and-output/README.md)
+  * [JSON argument](function-as-a-service/input-and-output/json-argument.md)
+  * [Binary argument](function-as-a-service/input-and-output/binary-argument.md)
+  * [Multiple arguments](function-as-a-service/input-and-output/multiple-arguments.md)
+  * [Argument from a URL](function-as-a-service/input-and-output/argument-from-a-url.md)
+  * [JSON return value](function-as-a-service/input-and-output/json-return-value.md)
+  * [Binary return value](function-as-a-service/input-and-output/binary-return-value.md)
+  * [Redirect return value](function-as-a-service/input-and-output/redirect-return-value.md)
 
 ## Related technologies
 

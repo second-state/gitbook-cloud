@@ -15,7 +15,7 @@ The source code of the tutorial is [here](https://github.com/second-state/wasm-l
 
 ## **Setup**
 
-> We use the Second State Virtual Machine \(SSVM\) , an open source WebAssembly runtime optimized for server-side applications, together with Node.js.
+> We use the Second State Virtual Machine \(SSVM\) , an open source WebAssembly runtime [optimized for server-side applications](../performance.md), together with Node.js.
 
 First, let's install Rust and Node.js. If you have already done it, you can skip these steps.
 
