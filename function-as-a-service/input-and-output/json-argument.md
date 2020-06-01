@@ -125,47 +125,115 @@ This is the standard request format which Javascript/Nodejs uses. It will be pas
 
 ### Callback example
 
-In some cases the results of a specific function's output may be used for another function's input. This function as a service infrastructure allows a callback\_url argument to be passed into a function, along with the function's other arguments.
+In some cases the results of a specific function's output may be used for another function's input. This function as a service infrastructure allows a callback_url argument to be passed into a function, along with the function's other arguments.
 
-Consider the following Rust code
+Below is an example of a single HTTP POST request which can perform two different tasks by calling a second endpoint, using the data derived from the calculations at the first endpoint. Specifically, we find the average of two temperatures, and then send that result off for conversion from Celsius to Fahrenheit.
+
+Consider the following Rust / Wasm code (`my_first_function`)
 
 ```rust
 use serde_json;
 use serde_json::json;
 use serde_json::Value;
 
-fn process<'a>(_callback_data: &'a str, _function_data:  &'a str) -> &'a str {
-    let callback_data_as_object: Value = serde_json::from_str(_callback_data).unwrap();
+#[no_mangle]
+fn my_first_function(_function_data: &str) -> String {
     let function_data_as_object: Value = serde_json::from_str(_function_data).unwrap();
-    let answer: u64 = function_data_as_object["left_value"].as_u64().unwrap() + function_data_as_object["right_value"].as_u64().unwrap();
-    println!("Answer: {:?}", answer);
+    let answer: f64 = (function_data_as_object["first_function_input"]["left_temperature"]
+        .as_f64()
+        .unwrap()
+        + function_data_as_object["first_function_input"]["right_temperature"]
+            .as_f64()
+            .unwrap())
+        / 2.0;
+    println!("average_temperature_as_celsius: {:?}", answer);
     let response_with_callback = json!({
-    "callback_data": _callback_data,
-    "function_data": {"answer": answer}
+    "callback": function_data_as_object["callback"],
+    "first_function_output": {"average_temperature_as_celsius": answer}
     });
-    &response_with_callback.to_string()
-}
-fn main() {
-    let callback_data_to_use = json!({
-        "method": "POST",
-        "hostname": "rpc.ssvm.secondstate.io",
-        "port": 8081,
-        "path": "/api/run/1/my_function",
-        "headers": {
-          "Content-Type": "application/json"
-        },
-      "maxRedirects": 20
-    });
-
-    let function_data_to_use = json!({
-        "left_value": 1,
-        "right_value": 1,
-    });
-
-    let returned_string = process(
-        &callback_data_to_use.to_string(),
-        &function_data_to_use.to_string(),
-    );
+    response_with_callback.to_owned().to_string()
 }
 ```
+The above `my_first_function` can be called using the following JSON string input (notice the `callback` to `my_other_function` at `wasm_id` `2` that is being passed in as input)
+```javascript
+{
+	"callback": {
+		"method": "POST",
+		"hostname": "rpc.ssvm.secondstate.io",
+		"port": 8081,
+		"path": "/api/run/2/my_other_function",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"maxRedirects": 20
+	},
+    "first_function_input": {
+        "left_temperature": 35,
+        "right_temperature": 38
+    }
+}
+```
+The following is an example of the inputs and outputs that are derived as the entire request/response process unfolds.
+
+A caller now issues the following HTTP request to `my_first_function` (the wasm executable at `wasm_id` `1`)
+```bash
+curl --location --request POST 'https://rpc.ssvm.secondstate.io:8081/api/run/1/my_first_function' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"callback": {
+		"method": "POST",
+		"hostname": "rpc.ssvm.secondstate.io",
+		"port": 8081,
+		"path": "/api/run/2/my_other_function",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"maxRedirects": 20
+	},
+    "first_function_input": {
+        "left_temperature": 35,
+        "right_temperature": 38
+    }
+}'
+```
+As we can see in the Rust source code above, `my_first_function` finds the `average_temperature_as_celsius` (given the `left_temperature` and the `right_temperature` of the `first_function_input`) and in addition returns the `callback`. The result of the execution of `my_first_function` looks like this.
+```Javascript
+{
+	"callback": {
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"hostname": "rpc.ssvm.secondstate.io",
+		"maxRedirects": 20,
+		"method": "POST",
+		"path": "/api/run/2/my_other_function",
+		"port": 8081
+	},
+	"first_function_output": {
+		"average_temperature_as_celsius": 36.5
+	}
+}
+```
+You may be wondering why we passed the `callback` into `my_first_function` as an input (part of the JSON string), only to see it returned here, right? 
+
+The reason for this is because it is not wise to hard code a callback (into your source code) because most of the time the callback's data would have some private credentials in it i.e. an API key or a password etc. It is safer to only pass the callback to `rpc.ssvm.secondstate.io` via HTTPS and let the callback execute securely inside the `POST` request.
+
+Here is the latter part of the execution (the callback). Consider the following function `my_other_function` at `wasm_id` `2` which converts the `average_temperature_as_celsius` to fahrenheit.
+
+```Rust
+#[no_mangle]
+fn my_other_function(_function_data:  &str) -> String {
+    let function_data_as_object: Value = serde_json::from_str(_function_data).unwrap();
+    let new_answer = function_data_as_object["first_function_output"]["average_temperature_as_celsius"].as_f64().unwrap() * (9.0/5.0) + 32.0;
+    let response = json!({
+    "other_function_output": {"average_temperature_as_fahrenheit": new_answer}
+    });
+    response.to_owned().to_string()
+}
+```
+
+```Javascript
+{"other_function_output":{"average_temperature_as_fahrenheit":97.7}}
+```
+
 
