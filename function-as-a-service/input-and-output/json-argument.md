@@ -167,10 +167,10 @@ The above `my_first_function` can be called using the following JSON string inpu
 		},
 		"maxRedirects": 20
 	},
-    "first_function_input": {
-        "left_temperature": 35,
-        "right_temperature": 38
-    }
+	"first_function_input": {
+		"left_temperature": 35,
+		"right_temperature": 38
+	}
 }
 ```
 The following is an example of the inputs and outputs that are derived as the entire request/response process unfolds.
