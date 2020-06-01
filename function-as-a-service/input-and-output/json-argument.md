@@ -231,6 +231,30 @@ fn my_other_function(_function_data:  &str) -> String {
     response.to_owned().to_string()
 }
 ```
+We have demonstrated here that each Wasm executable does return data, these multihop function executions (which use the callback object as input to the first callable function) facilitate all of the work to be handled internally. For example, if the caller issued the following HTTP POST request, they would simply get back one response which shows the `average_temperature_as_fahrenheit`. All of the other inner workings are not visible to the caller. 
+
+```
+curl --location --request POST 'https://rpc.ssvm.secondstate.io:8081/api/run/1/my_first_function' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"callback": {
+		"method": "POST",
+		"hostname": "rpc.ssvm.secondstate.io",
+		"port": 8081,
+		"path": "/api/run/2/my_other_function",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"maxRedirects": 20
+	},
+    "first_function_input": {
+        "left_temperature": 35,
+        "right_temperature": 38
+    }
+}'
+```
+
+The above request, produces the following result.
 
 ```Javascript
 {"other_function_output":{"average_temperature_as_fahrenheit":97.7}}
