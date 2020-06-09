@@ -125,11 +125,11 @@ This is the standard request format which Javascript/Nodejs uses. It will be pas
 
 ### Callback example
 
-In some cases the results of a specific function's output may be used for another function's input. This function as a service infrastructure allows a callback_url argument to be passed into a function, along with the function's other arguments.
+In some cases the results of a specific function's output may be used for another function's input. This function as a service infrastructure allows a callback\_url argument to be passed into a function, along with the function's other arguments.
 
 Below is an example of a single HTTP POST request which can perform two different tasks by calling a second endpoint, using the data derived from the calculations at the first endpoint. Specifically, we find the average of two temperatures, and then send that result off for conversion from Celsius to Fahrenheit.
 
-Consider the following Rust / Wasm code (`my_first_function`)
+Consider the following Rust / Wasm code \(`my_first_function`\)
 
 ```rust
 use serde_json;
@@ -154,73 +154,80 @@ fn my_first_function(_function_data: &str) -> String {
     response_with_callback.to_owned().to_string()
 }
 ```
-The above `my_first_function` can be called using the following JSON string input (notice the `callback` to `my_other_function` at `wasm_id` `2` that is being passed in as input)
+
+The above `my_first_function` can be called using the following JSON string input \(notice the `callback` to `my_other_function` at `wasm_id` `2` that is being passed in as input\)
+
 ```javascript
 {
-	"callback": {
-		"method": "POST",
-		"hostname": "rpc.ssvm.secondstate.io",
-		"port": 8081,
-		"path": "/api/run/2/my_other_function",
-		"headers": {
-			"Content-Type": "application/json"
-		},
-		"maxRedirects": 20
-	},
-	"first_function_input": {
-		"left_temperature": 35,
-		"right_temperature": 38
-	}
+    "callback": {
+        "method": "POST",
+        "hostname": "rpc.ssvm.secondstate.io",
+        "port": 8081,
+        "path": "/api/run/2/my_other_function",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "maxRedirects": 20
+    },
+    "first_function_input": {
+        "left_temperature": 35,
+        "right_temperature": 38
+    }
 }
 ```
+
 The following is an example of the inputs and outputs that are derived as the entire request/response process unfolds.
 
-A caller now issues the following HTTP request to `my_first_function` (the wasm executable at `wasm_id` `1`)
+A caller now issues the following HTTP request to `my_first_function` \(the wasm executable at `wasm_id` `1`\)
+
 ```bash
 curl --location --request POST 'https://rpc.ssvm.secondstate.io:8081/api/run/1/my_first_function' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-	"callback": {
-		"method": "POST",
-		"hostname": "rpc.ssvm.secondstate.io",
-		"port": 8081,
-		"path": "/api/run/2/my_other_function",
-		"headers": {
-			"Content-Type": "application/json"
-		},
-		"maxRedirects": 20
-	},
+    "callback": {
+        "method": "POST",
+        "hostname": "rpc.ssvm.secondstate.io",
+        "port": 8081,
+        "path": "/api/run/2/my_other_function",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "maxRedirects": 20
+    },
     "first_function_input": {
         "left_temperature": 35,
         "right_temperature": 38
     }
 }'
 ```
-As we can see in the Rust source code above, `my_first_function` finds the `average_temperature_as_celsius` (given the `left_temperature` and the `right_temperature` of the `first_function_input`) and in addition returns the `callback`. The result of the execution of `my_first_function` looks like this.
-```Javascript
+
+As we can see in the Rust source code above, `my_first_function` finds the `average_temperature_as_celsius` \(given the `left_temperature` and the `right_temperature` of the `first_function_input`\) and in addition returns the `callback`. The result of the execution of `my_first_function` looks like this.
+
+```javascript
 {
-	"callback": {
-		"headers": {
-			"Content-Type": "application/json"
-		},
-		"hostname": "rpc.ssvm.secondstate.io",
-		"maxRedirects": 20,
-		"method": "POST",
-		"path": "/api/run/2/my_other_function",
-		"port": 8081
-	},
-	"first_function_output": {
-		"average_temperature_as_celsius": 36.5
-	}
+    "callback": {
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "hostname": "rpc.ssvm.secondstate.io",
+        "maxRedirects": 20,
+        "method": "POST",
+        "path": "/api/run/2/my_other_function",
+        "port": 8081
+    },
+    "first_function_output": {
+        "average_temperature_as_celsius": 36.5
+    }
 }
 ```
-You may be wondering why we passed the `callback` into `my_first_function` as an input (part of the JSON string), only to see it returned here, right? 
 
-The reason for this is because it is not wise to hard code a callback (into your source code) because most of the time the callback's data would have some private credentials in it i.e. an API key or a password etc. It is safer to only pass the callback to `rpc.ssvm.secondstate.io` via HTTPS and let the callback execute securely inside the `POST` request.
+You may be wondering why we passed the `callback` into `my_first_function` as an input \(part of the JSON string\), only to see it returned here, right?
 
-Here is the latter part of the execution (the callback). Consider the following function `my_other_function` at `wasm_id` `2` which converts the `average_temperature_as_celsius` to fahrenheit.
+The reason for this is because it is not wise to hard code a callback \(into your source code\) because most of the time the callback's data would have some private credentials in it i.e. an API key or a password etc. It is safer to only pass the callback to `rpc.ssvm.secondstate.io` via HTTPS and let the callback execute securely inside the `POST` request.
 
-```Rust
+Here is the latter part of the execution \(the callback\). Consider the following function `my_other_function` at `wasm_id` `2` which converts the `average_temperature_as_celsius` to fahrenheit.
+
+```rust
 #[no_mangle]
 fn my_other_function(_function_data:  &str) -> String {
     let function_data_as_object: Value = serde_json::from_str(_function_data).unwrap();
@@ -231,22 +238,23 @@ fn my_other_function(_function_data:  &str) -> String {
     response.to_owned().to_string()
 }
 ```
-We have demonstrated here that each Wasm executable does return data, these multihop function executions (which use the callback object as input to the first callable function) facilitate all of the work to be handled internally. For example, if the caller issued the following HTTP POST request, they would simply get back one response which shows the `average_temperature_as_fahrenheit`. All of the other inner workings are not visible to the caller. 
 
-```
+We have demonstrated here that each Wasm executable does return data, these multihop function executions \(which use the callback object as input to the first callable function\) facilitate all of the work to be handled internally. For example, if the caller issued the following HTTP POST request, they would simply get back one response which shows the `average_temperature_as_fahrenheit`. All of the other inner workings are not visible to the caller.
+
+```text
 curl --location --request POST 'https://rpc.ssvm.secondstate.io:8081/api/run/1/my_first_function' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-	"callback": {
-		"method": "POST",
-		"hostname": "rpc.ssvm.secondstate.io",
-		"port": 8081,
-		"path": "/api/run/2/my_other_function",
-		"headers": {
-			"Content-Type": "application/json"
-		},
-		"maxRedirects": 20
-	},
+    "callback": {
+        "method": "POST",
+        "hostname": "rpc.ssvm.secondstate.io",
+        "port": 8081,
+        "path": "/api/run/2/my_other_function",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "maxRedirects": 20
+    },
     "first_function_input": {
         "left_temperature": 35,
         "right_temperature": 38
@@ -256,8 +264,7 @@ curl --location --request POST 'https://rpc.ssvm.secondstate.io:8081/api/run/1/m
 
 The above request, produces the following result.
 
-```Javascript
+```javascript
 {"other_function_output":{"average_temperature_as_fahrenheit":97.7}}
 ```
-
 

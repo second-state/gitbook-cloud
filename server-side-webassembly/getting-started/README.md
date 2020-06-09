@@ -83,7 +83,7 @@ pub fn say(s: String) -> String {
 Next, you can compile the Rust source code into WebAssembly bytecode and generate the accompanying JavaScript module for the Node.js host environment.
 
 ```text
-$ ssvmup build --nowasi
+$ ssvmup build
 ```
 
 The result are files in the `pkg/` directory. the `.wasm` file is the WebAssembly bytecode program, and the `.js` files are for the JavaScript module.
