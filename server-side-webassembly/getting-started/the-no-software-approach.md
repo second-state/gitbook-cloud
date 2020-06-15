@@ -1,12 +1,10 @@
 ---
-description: >-
-  Get started with your JavaScript + Rust hybrid Node.js app without installing
-  any software
+description: Get started with Rust functions in Node.js app without installing any software
 ---
 
 # VS Codespaces
 
-In the [previous tutorial](./), we discussed how to create a hybrid JavaScript + Rust application for Node.js. In this tutorial, I will show you how to experiment with development without installing any developer tools software.
+In the [previous tutorial](./), we discussed how to create and access Rust functions in Node.js apps. In this tutorial, I will show you how to experiment with development without installing any developer tools software.
 
 ![https://www.youtube.com/watch?v=j85cbNsciOs](../../.gitbook/assets/ssvm-edited-without-music.gif)
 

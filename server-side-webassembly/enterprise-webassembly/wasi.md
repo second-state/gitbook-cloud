@@ -69,5 +69,9 @@ $ node node/app.js
 
 More to come later for WASI functions to access the file system, console / stdout, time / clock, and network requests.
 
+### Printing and debugging from Rust
+
+The Rust `println!` marco just works in WASI. The statements print to the `STDOUT` of the process that runs the SSVM. In Node.js apps, it is the `STDOUT` on the Node.js server.
+
 
 

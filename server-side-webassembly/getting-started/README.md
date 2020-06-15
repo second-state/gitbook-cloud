@@ -1,10 +1,10 @@
 ---
-description: High-performance Rust + JavaScript hybrid apps in Node.js
+description: High-performance Rust functions in Node.js
 ---
 
 # Getting started
 
-There are great use cases for [WebAssembly on the server-side](../why/), especially for AI, blockchain, and big data applications. In this tutorial, I will show you how to incorporate WebAssembly functions, written in Rust, into Node.js applications on the server. The Rust + Node.js hybrid apps combine Rust's _**performance**_, WebAssembly's _**security and portability**_, and JavaScript's _**ease-of-use**_. A typical Rust + Node.js hybrid app works like this.
+There are great use cases for [WebAssembly on the server-side](../why/), especially for AI, blockchain, and big data applications. In this tutorial, I will show you how to incorporate WebAssembly functions, written in Rust, into Node.js applications on the server. This approach combines Rust's _**performance**_, WebAssembly's _**security and portability**_, and JavaScript's _**ease-of-use**_. A typical Rust + Node.js hybrid app works like this.
 
 * The host application is a Node.js web application written in JavaScript. It makes WebAssembly function calls.
 * The WebAssembly bytecode program is written in Rust. It runs inside the SSVM, and is called from the Node.js web application.
@@ -68,7 +68,7 @@ crate-type =["cdylib"]
 wasm-bindgen = "=0.2.61"
 ```
 
-Below is the content of the Rust program `src/lib.rs`. You can actually define multiple external functions in this library file, and all of them will be available to the host JaveScript app via WebAssembly.
+Below is the content of the Rust program `src/lib.rs`. You can actually define multiple external functions in this library file, and all of them will be available to the host JavaScript app via WebAssembly.
 
 ```text
 use wasm_bindgen::prelude::*;
