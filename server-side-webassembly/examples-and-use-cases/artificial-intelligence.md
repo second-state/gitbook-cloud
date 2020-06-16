@@ -4,6 +4,10 @@ description: Image recognition using Tensorflow
 
 # Artificial intelligence
 
+This example shows how to write a Rust function for image recognition, and then offer this function as AI-as-a-Service.
+
+{% embed url="https://www.youtube.com/watch?v=Ce2am-ugQhg" %}
+
 Using machine learning libraries in Rust, such as the [Tract](https://github.com/snipsco/tract) crate which supports both Tensorflow and ONNX inference model, we can write AI-as-a-Service functions in Node.js. The functions could take AI models and input data, and return inference results, such as recognized objects on an input image, through a web service.
 
 {% hint style="success" %}
