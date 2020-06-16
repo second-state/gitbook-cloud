@@ -20,5 +20,5 @@ You could also install [ssvmup](https://github.com/second-state/ssvmup) as a sta
 $ curl https://raw.githubusercontent.com/second-state/ssvmup/master/installer/init.sh -sSf | sh
 ```
 
-Next, learn how to use ssvmup to build Rust functions for Node.js and Deno applications.
+Next, [learn how](./) to use ssvmup to build Rust functions for Node.js and Deno applications.
 
