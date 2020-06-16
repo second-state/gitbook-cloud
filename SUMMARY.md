@@ -8,6 +8,7 @@
   * [WebAssembly vs native code](server-side-webassembly/why/webassembly-vs-native-code.md)
 * [Getting started](server-side-webassembly/getting-started/README.md)
   * [VS Codespaces](server-side-webassembly/getting-started/the-no-software-approach.md)
+  * [The ssvmup tool](server-side-webassembly/getting-started/the-ssvmup-tool.md)
 * [Rust functions in Node.js](server-side-webassembly/pass-any-argument-and-return-any-value.md)
 * [Access system resources](server-side-webassembly/enterprise-webassembly/README.md)
   * [WASI](server-side-webassembly/enterprise-webassembly/wasi.md)

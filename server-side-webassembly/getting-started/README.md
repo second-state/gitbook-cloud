@@ -37,7 +37,7 @@ $ nvm install v10.19.0
 $ nvm use v10.19.0
 ```
 
-The `ssvmup` npm module installs the Second State Virtual Machine \(SSVM\) into Node.js as a native `addon`, and provides the necessary compiler tools. Follow the steps below to install Rust and the `ssvmup` tool.
+The [ssvm](https://www.npmjs.com/package/ssvm) and [ssvmup](https://www.npmjs.com/package/ssvmup) npm modules install the [Second State Virtual Machine \(SSVM\)](https://github.com/second-state/ssvm) into Node.js as a native addon, and provides the necessary compiler tools. [Learn more](the-ssvmup-tool.md) about the [ssvmup](https://github.com/second-state/ssvmup) tool.
 
 ```text
 # Install ssvmup toolchain
@@ -252,5 +252,5 @@ N dhvpx oebja sbk whzcf bire gur ynml qbt
 
 ## **What’s next?**
 
-Now we have seen a very simple example to call a Rust function from JavaScript in a Node.js application. In the next article, we will discuss how to pass arbitrary arguments from a JavaScript program to Rust.
+Now we have seen a very simple example to call a Rust function from JavaScript in a Node.js application. [In the next article,](../pass-any-argument-and-return-any-value.md) we will discuss how to pass arbitrary arguments from a JavaScript program to Rust.
 
