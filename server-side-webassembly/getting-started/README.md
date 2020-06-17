@@ -13,29 +13,13 @@ There are great use cases for [WebAssembly on the server-side](../why/), especia
 The source code of the tutorial is [here](https://github.com/second-state/wasm-learning/tree/master/nodejs/hello). If you just want to try it out, you can [fork this repository](https://github.com/second-state/ssvm-nodejs-starter/fork) and [use the VSCode IDE to open it](the-no-software-approach.md).
 {% endhint %}
 
+## Prerequisites
+
+Since we are building Rust functions to run in Node.js, make sure that you have [Rust](https://www.rust-lang.org/tools/install) and [Node.js](https://nodejs.org/en/download/package-manager/) installed on your computer.
+
 ## **Setup**
 
 > We use the Second State Virtual Machine \(SSVM\) , an open source WebAssembly runtime [optimized for server-side applications](../performance.md), together with Node.js.
-
-First, let's install Rust and Node.js. If you have already done it, you can skip these steps.
-
-```text
-# Prerequisite
-$ sudo apt-get update
-$ sudo apt install -y build-essential curl wget git vim libboost-all-dev
-
-# Install rust
-$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-$ source $HOME/.cargo/env
-
-# Install nvm
-$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-# Follow the on-screen instructions to logout and then log in
-
-# Install node
-$ nvm install v10.19.0
-$ nvm use v10.19.0
-```
 
 The [ssvm](https://www.npmjs.com/package/ssvm) and [ssvmup](https://www.npmjs.com/package/ssvmup) npm modules install the [Second State Virtual Machine \(SSVM\)](https://github.com/second-state/ssvm) into Node.js as a native addon, and provides the necessary compiler tools. [Learn more](the-ssvmup-tool.md) about the [ssvmup](https://github.com/second-state/ssvmup) tool.
 
@@ -49,26 +33,7 @@ $ npm install ssvm
 
 ## **WebAssembly program in Rust**
 
-In this example, our Rust program appends the input string after “hello”. Let’s create a new `cargo` project. Since this program is intended to be called from a host application, not to run as a stand-alone executable, we will create a `hello` project.
-
-```text
-$ cargo new --lib hello
-$ cd hello
-```
-
-Edit the `Cargo.toml` file to add a `[lib]` section. It tells the compiler where to find the source code for the library and how to generate the bytecode output. We also need to add a dependency of `wasm-bindgen` here. It is the utility `ssvmup` uses to generate the JavaScript binding for the Rust WebAssembly program.
-
-```text
-[lib]
-name = "hello_lib"
-path = "src/lib.rs"
-crate-type =["cdylib"]
-
-[dependencies]
-wasm-bindgen = "=0.2.61"
-```
-
-Below is the content of the Rust program `src/lib.rs`. You can actually define multiple external functions in this library file, and all of them will be available to the host JavaScript app via WebAssembly.
+In this example, our Rust program appends the input string after “hello”. Below is the content of the Rust program [`src/lib.rs`](https://github.com/second-state/ssvm-nodejs-starter/blob/master/src/lib.rs). You can define multiple external functions in this library file, and all of them will be available to the host JavaScript app via WebAssembly. Just remember to annotate each function with `#[wasm_bindgen]` so that [ssvmup](https://github.com/second-state/ssvmup) knows to generate the correct JavaScript to Rust interface for it when you build it.
 
 ```text
 use wasm_bindgen::prelude::*;
@@ -90,7 +55,7 @@ The result are files in the `pkg/` directory. the `.wasm` file is the WebAssembl
 
 ## **The Node.js host application**
 
-Next, go to the `node` folder and examine the JavaScript program `app.js`. With the generated `hello_lib.js` module, it is very easy to write JavaScript to call WebAssembly functions. Below is the node application `app.js`. It simply imports the `say()` function from the generated module. The node application takes the `name` parameter from incoming an HTTP GET request, and responds with “hello `name`”.
+Next, go to the `node` folder and examine the JavaScript program [`app.js`](https://github.com/second-state/ssvm-nodejs-starter/blob/master/node/app.js). With the generated `hello_lib.js` module, it is very easy to write JavaScript to call WebAssembly functions. Below is the node application `app.js`. It simply imports the `say()` function from the generated module. The node application takes the `name` parameter from incoming an HTTP GET request, and responds with “hello `name`”.
 
 ```text
 const { say } = require('../pkg/hello_lib.js');
@@ -128,7 +93,7 @@ hello Wasm
 
 ## **More complex examples**
 
-Besides passing string values between Rust and JavaScript, the `ssvmup` tool supports the following data types.
+Besides passing string values between Rust and JavaScript, the ssvmup tool supports the following data types.
 
 * Rust call parameters can be any combo of `i32`, `String`, `&str`, `Vec<u8>`, and `&[u8]`
 * Return value can be `i32` or `String` or `Vec<u8>`
@@ -228,7 +193,7 @@ var line = JSON.parse(create_line(JSON.stringify(p1), JSON.stringify(p2), "A thi
 console.log( line );
 ```
 
-After running `ssvmup` to build the Rust library, running `app.js` in Node.js environment produces the following output.
+After running ssvmup to build the Rust library, running `app.js` in Node.js environment produces the following output.
 
 ```text
 $ ssvmup build
