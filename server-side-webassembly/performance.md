@@ -4,6 +4,8 @@ description: Performance benchmark for the SSVM against other WebAssembly runtim
 
 # SSVM Performance
 
+## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+
 The Second State Virtual Machine \([SSVM](https://github.com/second-state/ssvm)\)  is an open source WebAssembly runtime optimized for server-side applications. The SSVM provides not only a WebAssembly runtime in Node.js, but also a compiler toolchain [ssvmup](https://github.com/second-state/ssvmup) for Rust and JavaScript.
 
 #### Performance benchmarks

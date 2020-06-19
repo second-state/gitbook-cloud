@@ -4,6 +4,8 @@ description: Write and deploy Rust functions as web services
 
 # Getting started
 
+## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+
 The Second State FaaS service \(currently in public beta\) enables you to write Rust functions, and make them available as RESTful web services. Key features:
 
 * Each Rust function is a RESTful endpoint

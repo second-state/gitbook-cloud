@@ -4,6 +4,8 @@ description: Use RSA public key algorithms to encrypt and decrypt
 
 # Encryption and decryption
 
+## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+
 One of the frequently performed computing tasks is public key encryption and decryption. Rust and C++ code vastly outperforms JavaScript code in these tasks. In this tutorial, let's use [pure Rust implementation of the RSA algorithm](https://crates.io/crates/rsa) as an example to show how to perform public key encryption and decryption in a Node.js web service.
 
 {% hint style="success" %}

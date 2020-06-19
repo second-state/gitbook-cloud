@@ -4,6 +4,8 @@ description: Chain multiple functions together
 
 # Send result to another service
 
+## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+
 A common use case of serverless functions is to act as the bridge between several web services or messaging queues. It receives a request from a source, and then send the return value onto the next service.
 
 The way to accomplish that is to return a JSON string from the function. If the JSON object contains a `callback` object, the FaaS would strip it from the return value, and then send the rest of the return value to the HTTP endpoint defined in the callback.

@@ -4,6 +4,8 @@ description: Calling any Rust function from Node.js JavaScript code
 
 # Rust functions in Node.js
 
+## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+
 With JSON support, JavaScript code can call Rust functions with any number of input parameters and return any number of return values of any type. That allows us to take advantage of a large number of Rust libraries and crates in the ecosystem.
 
 {% hint style="success" %}

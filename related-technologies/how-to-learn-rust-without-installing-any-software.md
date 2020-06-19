@@ -4,6 +4,10 @@ description: How to use GitHub Actions to learn Rust from your web browser
 
 # How to Learn Rust Without Installing Any Software
 
+## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+
+## 
+
 ![](../.gitbook/assets/image%20%281%29.png)
 
 In this article, we'll learn how to use GitHub Actions to learn Rust from your web browser. We'll code, build, test, run, and release all from a web page. No software needed! [Learn with GitHub](https://github.com/second-state/learn-rust-with-github-actions/fork).

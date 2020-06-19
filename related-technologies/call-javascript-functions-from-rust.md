@@ -6,6 +6,8 @@ description: >-
 
 # Access JavaScript from Rust
 
+## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+
 In this tutorial, we will show you how to use the [`nodejs-helper`](https://crates.io/crates/nodejs-helper) crate to call Node.js functions from Rust code. Rust functions can now access the file system, network, database, and other system resources from within the WebAssembly container.
 
 {% hint style="info" %}

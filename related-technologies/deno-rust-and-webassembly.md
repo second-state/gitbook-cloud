@@ -4,6 +4,8 @@ description: How to extend Deno with Rust and WebAssembly functions
 
 # Deno, Rust and WebAssembly
 
+## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+
 [Deno](https://deno.land/) is a JavaScript / Typescript runtime written in Rust. It is based on Google V8 engine \(same as Node.js\) and created by [Ryan Dahl](https://en.wikipedia.org/wiki/Ryan_Dahl) -- the creator and original developer of Node.js.
 
 **Q: Is Deno going to replace Node.js?** 

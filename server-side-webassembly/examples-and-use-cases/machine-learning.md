@@ -4,6 +4,8 @@ description: Use k-means clustering algorithm to classify data points
 
 # Machine learning
 
+## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+
 The lingua franca of machine learning is Python. However, Python relies on C/C++ based native modules to perform the actual computationally intensive tasks of machine learning. It is similar to Node.js relying on C++ to perform computing tasks.
 
 For new machine learning algorithms, developers can choose to implement them in Python for developer productivity or in C++ for runtime efficiency. Now, there is a third choice. Implementing machine learning algorithms in Rust could provide a 25x performance gain over Python as well as safety over C++. In this tutorial, we will demonstrate how to do k-means clustering computation in Rust, and make the function available in Node.js.

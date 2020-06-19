@@ -4,6 +4,8 @@ description: Use JSON strings as function arguments
 
 # JSON argument
 
+## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+
 ## Strongly typed data structures
 
 Rust is able to map a JSON string to a Rust object using what is known as a [strongly typed data structure](https://docs.serde.rs/serde_json/#parsing-json-as-strongly-typed-data-structures). The following Rust code defines the `Person` data before compile time.

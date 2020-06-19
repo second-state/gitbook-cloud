@@ -6,6 +6,8 @@ description: >-
 
 # How to Publish a no-code website in 10 minutes
 
+## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+
 In this article, I'll introduce a no-code, no-software and no-cost solution to publishing sophisticated web sites managed by non-technical people. The full codebase is [on GitHub here](https://github.com/second-state/hugo-website/fork).
 
 Sir Issac Newton discovered the law of gravity when practicing “social distancing” during the Plague. What will YOU do? One silver lining of quarantine is that all this free time brings out the entrepreneur spirit and creativity in us.

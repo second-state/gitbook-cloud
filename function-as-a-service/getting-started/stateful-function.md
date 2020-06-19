@@ -4,6 +4,8 @@ description: Give the function a context
 
 # Context
 
+## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+
 The first argument of any function must be a `&str`. You can use it to pass a `context` value to every function call. For example, we can set a `context` string for wasm ID `123`, which is the hello world wasm example we just created. The context specifies that the function should say hello in emoji.
 
 ```text
