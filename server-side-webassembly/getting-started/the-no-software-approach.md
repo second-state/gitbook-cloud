@@ -4,7 +4,7 @@ description: Get started with Rust functions in Node.js app without installing a
 
 # VS Codespaces
 
-## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+## This page is outdated. Please [visit here for the most up-to-date content.](https://www.secondstate.io/articles/getting-started-rust-nodejs-vscode/)
 
 In the [previous tutorial](./), we discussed how to create and access Rust functions in Node.js apps. In this tutorial, I will show you how to experiment with development without installing any developer tools software.
 

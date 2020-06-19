@@ -4,7 +4,7 @@ description: Access high performance storage and databases from a Rust API
 
 # The storage interface
 
-## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/the-storage-interface-in-ssvm/).
 
 The [SSVM storage interface](https://github.com/second-state/specs/blob/master/storage_interface.md) provides a Rust API that allows programs to persist arbitrary  data into a key value store. The data store is configured and started by the SSVM and hence is transparent to the Rust application. Rust developers can view this as an abstract storage space for application data. 
 

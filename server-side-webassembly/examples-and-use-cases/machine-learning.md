@@ -4,7 +4,7 @@ description: Use k-means clustering algorithm to classify data points
 
 # Machine learning
 
-## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+## This page is outdated. Please [visit here for the most up-to-date content.](https://www.secondstate.io/articles/machine-learning/)
 
 The lingua franca of machine learning is Python. However, Python relies on C/C++ based native modules to perform the actual computationally intensive tasks of machine learning. It is similar to Node.js relying on C++ to perform computing tasks.
 

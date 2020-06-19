@@ -6,7 +6,7 @@ description: >-
 
 # How to Publish a no-code website in 10 minutes
 
-## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/how-to-learn-rust-without-installing-any-software/).
 
 In this article, I'll introduce a no-code, no-software and no-cost solution to publishing sophisticated web sites managed by non-technical people. The full codebase is [on GitHub here](https://github.com/second-state/hugo-website/fork).
 

@@ -4,7 +4,7 @@ description: The compiler toolchain for Rust functions in JavaScript
 
 # The ssvmup tool
 
-## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+## This page is outdated. Please [visit here for the most up-to-date content.](https://www.secondstate.io/articles/ssvmup/)
 
 Throughout our examples, we make extensive use of the [ssvmup](https://github.com/second-state/ssvmup) tool. It is inspired by the wasm-pack project but is optimized for server-side applications. Specifically, it supports the [SSVM](https://github.com/second-state/ssvm) WebAssembly virtual machine and Deno host runtime.
 
