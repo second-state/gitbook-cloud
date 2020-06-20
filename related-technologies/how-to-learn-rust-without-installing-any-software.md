@@ -4,7 +4,7 @@ description: How to use GitHub Actions to learn Rust from your web browser
 
 # How to Learn Rust Without Installing Any Software
 
-## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/how-to-publish-a-no-code-website-in-10-minutes/).
+## This page is outdated. Please visit here to check out how to [learn Rust from your web browser](https://www.secondstate.io/articles/how-to-publish-a-no-code-website-in-10-minutes/).
 
 ## 
 

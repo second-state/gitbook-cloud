@@ -4,7 +4,7 @@ description: Image recognition using Tensorflow
 
 # Artificial intelligence
 
-## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/artificial-intelligence/).
+## This page is outdated. Please Please visit here to see the use case of [Rust function in AI](https://www.secondstate.io/articles/artificial-intelligence/).
 
 This example shows how to write a Rust function for image recognition, and then offer this function as AI-as-a-Service.
 

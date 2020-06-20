@@ -4,7 +4,7 @@ description: High-performance Rust functions in Node.js
 
 # Getting started
 
-## This page is outdated. Please[ visit here for the most up-to-date content](https://www.secondstate.io/articles/getting-started-with-rust-function/).
+## This page is outdated. Please visit here to [see how to run Rust functions in Node.js](https://www.secondstate.io/articles/getting-started-with-rust-function/).
 
 There are great use cases for [WebAssembly on the server-side](../why/), especially for AI, blockchain, and big data applications. In this tutorial, I will show you how to incorporate WebAssembly functions, written in Rust, into Node.js applications on the server. This approach combines Rust's _**performance**_, WebAssembly's _**security and portability**_, and JavaScript's _**ease-of-use**_. A typical Rust + Node.js hybrid app works like this.
 

@@ -4,7 +4,7 @@ description: WebAssembly could improve security and efficiency of web services
 
 # Why?
 
-## This page is outdated. Please [visit here for the most up-to-date content](https://www.secondstate.io/articles/why-webassembly-server/).
+## This page is outdated. Please visit here to check out [Why WebAssembly on the server-side](https://www.secondstate.io/articles/why-webassembly-server/).
 
 {% embed url="https://www.youtube.com/watch?v=RjYLHxNO4nM" caption="" %}
 

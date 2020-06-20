@@ -6,7 +6,7 @@ description: >-
 
 # WASI
 
-## This page is outdated. Please[ visit here for the most up-to-date content](https://www.secondstate.io/articles/wasi-access-system-resources/).
+## This page is outdated. Please visit here to see how to [access system resources from WebAssembly](https://www.secondstate.io/articles/wasi-access-system-resources/).
 
 {% hint style="info" %}
 If WASM+WASI existed in 2008, we wouldn't have needed to created Docker. That's how important it is. Webassembly on the server is the future of computing. A standardized system interface was the missing link. Let's hope WASI is up to the task! _**-- Solomon Hykes, Co-founder of Docker**_
