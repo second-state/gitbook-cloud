@@ -61,15 +61,15 @@ The above approach allows the string to be parsed, regardless of its structural 
 json_as_object["outer_object"]["middle_nested"]["inner_nested"]["value_to_use_in_app"]
 ```
 
-## Callback\_url argument
+## SSVM_Callback argument
 
 It is possible for a function to initiate further processing via the use of a callback. This functionality is optional, but very useful and worth learning about.
 
 **Important notes:**
 
 * Please ensure that the data for the callback object adheres to the standard shown below \(1\)
-* Please ensure that the data for the callback object is wrapped in a single `callback` wrapper as shown below \(2\)
-* Please ensure that the `callback` object is at the top level as shown below \(3\)
+* Please ensure that the data for the callback object is wrapped in a single `SSVM_Callback` wrapper as shown below \(2\)
+* Please ensure that the `SSVM_Callback` object is at the top level as shown below \(3\)
 
 \(1\) Before we begin with an example, please note that it is important to adhere to the following request structure when creating your own callback object in your Rust / Wasm code.
 
@@ -88,11 +88,11 @@ It is possible for a function to initiate further processing via the use of a ca
 
 This is the standard request format which Javascript/Nodejs uses. It will be passed straight into a request programatically and therefore the structure and the key:value entries must conform to the standard [outlined here](https://nodejs.org/api/https.html#https_https_request_options_callback).
 
-\(2\) Please note that over and above the example we have just used ... there **must be an additional `callback` object which wraps the standard request format**. Here is the complete example of what your callback argument should look like; note the `{"callback": {}}` wrapper.
+\(2\) Please note that over and above the example we have just used ... there **must be an additional `SSVM_Callback` object which wraps the standard request format**. Here is the complete example of what your callback argument should look like; note the `{"SSVM_Callback": {}}` wrapper.
 
 ```javascript
 {
-    "callback": {
+    "SSVM_Callback": {
         "method": "POST",
         "hostname": "rpc.ssvm.secondstate.io",
         "port": 8081,
@@ -105,14 +105,14 @@ This is the standard request format which Javascript/Nodejs uses. It will be pas
 }
 ```
 
-\(3\) Please note that the `callback` is a standalone object which is always at the top level \(along side other top level objects as required\)
+\(3\) Please note that the `SSVM_Callback` is a standalone object which is always at the top level \(along side other top level objects as required\)
 
 ```javascript
 {
     "function": {
         "name": "new template name"
     },
-    "callback": {
+    "SSVM_Callback": {
         "method": "POST",
         "hostname": "rpc.ssvm.secondstate.io",
         "port": 8081,
@@ -148,20 +148,18 @@ fn my_first_function(_function_data: &str) -> String {
             .as_f64()
             .unwrap())
         / 2.0;
-    println!("average_temperature_as_celsius: {:?}", answer);
-    let response_with_callback = json!({
-    "callback": function_data_as_object["callback"],
+    let response = json!({
     "first_function_output": {"average_temperature_as_celsius": answer}
     });
-    response_with_callback.to_owned().to_string()
+    response.to_owned().to_string()
 }
 ```
 
-The above `my_first_function` can be called using the following JSON string input \(notice the `callback` to `my_other_function` at `wasm_id` `2` that is being passed in as input\)
+The above `my_first_function` can be called using the following JSON string input \(notice the `SSVM_Callback` to `my_other_function` at `wasm_id` `2` that is being passed in as input\)
 
 ```javascript
 {
-    "callback": {
+    "SSVM_Callback": {
         "method": "POST",
         "hostname": "rpc.ssvm.secondstate.io",
         "port": 8081,
@@ -186,7 +184,7 @@ A caller now issues the following HTTP request to `my_first_function` \(the wasm
 curl --location --request POST 'https://rpc.ssvm.secondstate.io:8081/api/run/1/my_first_function' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "callback": {
+    "SSVM_Callback": {
         "method": "POST",
         "hostname": "rpc.ssvm.secondstate.io",
         "port": 8081,
@@ -203,27 +201,17 @@ curl --location --request POST 'https://rpc.ssvm.secondstate.io:8081/api/run/1/m
 }'
 ```
 
-As we can see in the Rust source code above, `my_first_function` finds the `average_temperature_as_celsius` \(given the `left_temperature` and the `right_temperature` of the `first_function_input`\) and in addition returns the `callback`. The result of the execution of `my_first_function` looks like this.
+As we can see in the Rust source code above, `my_first_function` finds the `average_temperature_as_celsius` \(given the `left_temperature` and the `right_temperature` of the `first_function_input`\). The result of the execution of `my_first_function` looks like this.
 
 ```javascript
 {
-    "callback": {
-        "headers": {
-            "Content-Type": "application/json"
-        },
-        "hostname": "rpc.ssvm.secondstate.io",
-        "maxRedirects": 20,
-        "method": "POST",
-        "path": "/api/run/2/my_other_function",
-        "port": 8081
-    },
     "first_function_output": {
         "average_temperature_as_celsius": 36.5
     }
 }
 ```
 
-You may be wondering why we passed the `callback` into `my_first_function` as an input \(part of the JSON string\), only to see it returned here, right?
+You may be wondering why we passed the `SSVM_Callback` into `my_first_function` as an input?
 
 The reason for this is because it is not wise to hard code a callback \(into your source code\) because most of the time the callback's data would have some private credentials in it i.e. an API key or a password etc. It is safer to only pass the callback to `rpc.ssvm.secondstate.io` via HTTPS and let the callback execute securely inside the `POST` request.
 
@@ -247,7 +235,7 @@ We have demonstrated here that each Wasm executable does return data, these mult
 curl --location --request POST 'https://rpc.ssvm.secondstate.io:8081/api/run/1/my_first_function' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "callback": {
+    "SSVM_Callback": {
         "method": "POST",
         "hostname": "rpc.ssvm.secondstate.io",
         "port": 8081,
