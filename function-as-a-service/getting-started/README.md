@@ -99,7 +99,7 @@ Use the following `curl` command to upload the `wasm` file to the FaaS service. 
 ```text
 $ curl --location --request POST 'https://rpc.ssvm.secondstate.io:8081/api/executables' \
 --header 'Content-Type: application/octet-stream' \
---header 'SSVM-Description: say hello' \
+--header 'SSVM_Description: say hello' \
 --data-binary 'pkg/hello_lib_bg.wasm'
 ```
 
